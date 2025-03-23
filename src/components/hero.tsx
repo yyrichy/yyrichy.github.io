@@ -35,17 +35,8 @@ export function Hero() {
       <div className='container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full'>
         <div className='flex flex-col lg:flex-row items-center justify-between gap-12 w-full'>
           <div className='lg:w-1/2 space-y-3 md:space-y-6'>
-            <div className='flex flex-wrap gap-2 mb-4'>
-              <Badge variant='outline' className='px-3 py-1 text-sm bg-primary/10 hover:bg-primary/20'>
-                Available for Work
-              </Badge>
-              <Badge variant='outline' className='px-3 py-1 text-sm'>
-                Software Engineering Intern
-              </Badge>
-            </div>
-
             <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight'>
-              Hi, I&apos;m <span className='text-primary'>Richard Yin</span>
+              Hi, I'm <span className='text-primary'>Richard Yin</span>
             </h1>
 
             <div className='h-8'>
@@ -56,9 +47,8 @@ export function Hero() {
             </div>
 
             <p className='text-lg text-muted-foreground max-w-xl'>
-              I build modern full-stack applications and explore emerging fields in computer science, including artificial intelligence and
-              cloud technologies. My work emphasizes clean code, optimal performance, and exceptional user experience, driven by a passion
-              for solving complex problems through innovative technology.
+              I'm a constant learner building modern full-stack applications and always looking for new tech, including AI and cloud
+              technologies. My work emphasizes clean code, performance, and user experience.
             </p>
 
             <div className='flex flex-wrap gap-4 pt-4 items-center'>
@@ -83,7 +73,7 @@ export function Hero() {
             <div className='pt-8'>
               <p className='text-sm text-muted-foreground mb-3'>Tech Stack</p>
               <div className='flex flex-wrap gap-3'>
-                {['React', 'TypeScript', 'Python', 'AWS', 'SQL', 'MongoDB', 'Java', 'TailwindCSS', 'React Native', 'Linux/Unix'].map(
+                {['React', 'TypeScript', 'Python', 'AWS', 'SQL', 'Java', 'TailwindCSS', 'React Native', 'Linux/Unix', 'Supabase'].map(
                   (tech) => (
                     <div key={tech} className='flex items-center gap-2 bg-muted px-3 py-1 rounded-full text-sm'>
                       {tech}

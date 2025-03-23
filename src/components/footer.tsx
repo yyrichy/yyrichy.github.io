@@ -12,7 +12,7 @@ export function Footer() {
               Richard Yin<span className='text-primary'>.dev</span>
             </Link>
             <p className='mt-4 text-sm text-muted-foreground'>
-              Software engineering student passionate about building innovative applications and solving complex problems.
+              Software engineering student developing easy to use and enjoyable applications with current tech.
             </p>
           </div>
 

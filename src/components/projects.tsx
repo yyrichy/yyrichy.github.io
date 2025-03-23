@@ -21,7 +21,7 @@ const projects = [
     id: 2,
     title: 'App Development Club Website',
     description:
-      'Worked with other club members to redesign and redevelop the club  website using React, implementing modern UI/UX principles that significantly improved user engagement. Created immersive user experiences through Framer Motion and Atropos animations, while building a responsive design with fluid gradient animations. Implemented a MongoDB backend to dynamically manage project content, eliminating manual updates. Followed professional Agile methodologies with biweekly meetings and GitHub issue tracking.',
+      'Worked with other club members to redesign and redevelop the club website using React, significantly improved user engagement. Created immersive user experiences through Framer Motion and Atropos animations. Implemented a MongoDB backend to dynamically manage project content, eliminating manual updates.',
     image: '/images/app_dev_club.png',
     technologies: ['React', 'TailwindCSS', 'Typescript', 'MongoDB'],
     liveUrl: 'https://appdevclub.com',
@@ -48,17 +48,17 @@ export function Projects() {
 
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
           {projects.map((project) => (
-            <Card key={project.id} className='flex flex-col h-full mt-0 pt-0'>
+            <Card key={project.id} className='group flex flex-col h-full mt-0 pt-0 hover:shadow-lg transition-all duration-300 ease-in-out'>
               <div className='flex flex-col flex-grow gap-4'>
                 <div className='aspect-video relative overflow-hidden'>
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className='object-cover transition-transform hover:scale-105 rounded-tl-xl rounded-tr-xl'
+                    className='object-cover transition-transform duration-500 group-hover:scale-105 rounded-tl-xl rounded-tr-xl'
                   />
                 </div>
-                <CardHeader>
+                <CardHeader className='transition-colors duration-300 group-hover:bg-muted/30'>
                   <CardTitle>{project.title}</CardTitle>
                   <div className='flex flex-wrap gap-2 mt-2'>
                     {project.technologies.map((tech) => (
@@ -74,7 +74,7 @@ export function Projects() {
               </div>
               <CardFooter className='flex gap-2 justify-end'>
                 {project.githubUrl && (
-                  <Button size='sm' asChild className='flex-1' variant='outline'>
+                  <Button size='sm' asChild className='flex-1 transition-colors duration-300 hover:bg-primary/10' variant='outline'>
                     <a href={project.githubUrl} target='_blank' rel='noopener noreferrer'>
                       <svg className='w-4 h-4 mr-2' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
                         <path
@@ -87,7 +87,7 @@ export function Projects() {
                   </Button>
                 )}
                 {project.liveUrl && (
-                  <Button size='sm' asChild className='flex-1'>
+                  <Button size='sm' asChild className='flex-1 transition-colors duration-300 hover:bg-primary/90'>
                     <a href={project.liveUrl} target='_blank' rel='noopener noreferrer'>
                       <svg className='w-4 h-4 mr-2' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
                         <path

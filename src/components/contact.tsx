@@ -17,7 +17,7 @@ export function Contact() {
           <Card className='w-full'>
             <CardHeader>
               <CardTitle>Contact Information</CardTitle>
-              <CardDescription>I&apos;m currently looking for new opportunities. Don&apos;t hesitate to contact me!</CardDescription>
+              <CardDescription>I'm currently looking for new opportunities. Don't hesitate to contact me!</CardDescription>
             </CardHeader>
             <CardContent className='space-y-4'>
               <div className='flex items-center gap-3'>

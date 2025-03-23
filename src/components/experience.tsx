@@ -47,16 +47,16 @@ export function Experience() {
       <div className='w-full max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-48'>
         <h2 className='text-3xl font-bold mb-4 text-center'>Experience</h2>
         <p className='text-muted-foreground text-center max-w-2xl mx-auto mb-12'>
-          My professional journey as a software engineering intern, where I&apos;ve applied my skills in real-world environments.
+          My professional journey as a software engineering intern, where I've applied my skills in real-world environments.
         </p>
 
         <div className='space-y-8'>
           {experiences.map((exp) => (
-            <Card key={exp.id} className='overflow-hidden border-0 shadow-md p-4'>
+            <Card key={exp.id} className='group overflow-hidden border-0 shadow-md p-4 hover:shadow-lg transition-all duration-300 ease-in-out'>
               <div className='flex flex-col md:flex-row'>
-                <div className='md:w-1/4 bg-muted flex items-center justify-center'>
-                  <div className='relative w-full h-full overflow-hidden border-4 border-background'>
-                    <Image src={exp.image} alt={exp.company} fill className='object-contain' />
+                <div className='md:w-1/4 bg-muted/30 flex items-center justify-center rounded-lg p-4 transition-colors duration-300 group-hover:bg-muted/50'>
+                  <div className='relative w-full h-full overflow-hidden'>
+                    <Image src={exp.image} alt={exp.company} fill className='object-contain transition-transform duration-500 group-hover:scale-105' />
                   </div>
                 </div>
                 <div className='md:w-3/4'>
@@ -78,7 +78,7 @@ export function Experience() {
                         </a>
                       </p>
                     )}
-                    <div className='flex flex-wrap gap-2'>
+                    <div className='flex flex-wrap gap-2 transition-opacity duration-300 group-hover:opacity-90'>
                       {exp.skills.map((skill) => (
                         <Badge key={skill} variant='secondary'>
                           {skill}
