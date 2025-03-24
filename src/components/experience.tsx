@@ -8,11 +8,11 @@ import { motion } from 'framer-motion';
 const experiences = [
   {
     id: 1,
-    company: 'Children&apos;s National Hospital',
+    company: "Children's National Hospital",
     role: 'Software Engineering Intern',
     duration: 'September 2024 - Current',
     description:
-      'Developing a mobile app and backend system for monitoring breathing tube effectiveness in children with tracheostomy. The app communicates with our device running real-time CO2 level analysis to alert nurses and parents during emergencies. Backend device using TimescaleDB for time-series data, users and nurses added to PostgreSQL database via web application.',
+      'Developing a mobile app and backend system for monitoring breathing tube effectiveness in children with tracheostomy. The app communicates with our device running real-time CO2 level analysis to alert nurses and parents during emergencies. The backend device uses TimescaleDB for time-series data, users and nurses added to PostgreSQL database via web application. Working with other university students.',
     image: '/images/national.png',
     skills: ['Flutter', 'Python', 'TimescaleDB', 'PostgreSQL', 'NumPy'],
   },
@@ -33,7 +33,7 @@ const experiences = [
     role: 'Frontend Developer',
     duration: 'January 2024 - Current',
     description:
-      'Member of a university programming club collaborating with Fortune 500 companies (Amazon, MITRE, CNH, etc.). Contributed to rebuilding the club&apos;s website using React.',
+      "Member of a university programming club collaborating with Fortune 500 companies (Amazon, MITRE, CNH, etc.). Contributed to rebuilding the club's website using React.",
     image: '/images/app_dev_logo.png',
     skills: ['React', 'HTML/CSS', 'Typescript', 'Figma', 'MongoDB'],
     website: 'https://appdevclub.com',

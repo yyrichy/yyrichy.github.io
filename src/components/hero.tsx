@@ -1,27 +1,56 @@
 // components/hero.tsx
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { MapPin } from 'lucide-react';
 import { Badge } from './ui/badge';
 
+const draw = {
+  hidden: { pathLength: 0, opacity: 0 },
+  visible: (i: number) => {
+    const delay = i * 0.5;
+    return {
+      pathLength: 1,
+      opacity: 1,
+      transition: {
+        pathLength: { delay, type: 'spring', duration: 1.5, bounce: 0 },
+        opacity: { delay, duration: 0.01 },
+      },
+    };
+  },
+};
+
+const shape: React.CSSProperties = {
+  strokeWidth: 10,
+  strokeLinecap: 'round',
+  fill: 'transparent',
+};
+
 export function Hero() {
   const [typedText, setTypedText] = useState('');
-  const fullText = 'CS & Math Student @ UMD';
+  const fullText = useMemo(() => 'CS & Math Student @ UMD', []);
   const [textIndex, setTextIndex] = useState(0);
+  const prefersReducedMotion = useReducedMotion();
 
-  useEffect(() => {
+  const typeText = useCallback(() => {
     if (textIndex < fullText.length) {
       const timeout = setTimeout(() => {
         setTypedText((prev) => prev + fullText[textIndex]);
         setTextIndex(textIndex + 1);
       }, 100);
-
       return () => clearTimeout(timeout);
     }
-  }, [textIndex]);
+  }, [textIndex, fullText]);
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      setTypedText(fullText);
+      return;
+    }
+    return typeText();
+  }, [prefersReducedMotion, fullText, typeText]);
 
   return (
     <section className='relative w-full min-h-screen flex items-center pt-16 overflow-hidden'>
@@ -96,8 +125,8 @@ export function Hero() {
             </div>
 
             <p className='text-lg text-stone-600 dark:text-stone-400 max-w-xl font-light leading-relaxed'>
-              I&apos;m a constant learner building modern full-stack applications and always looking for new tech, including AI and cloud
-              technologies. My work emphasizes clean code, performance, and user experience.
+              I&apos;m building full-stack applications and always learning new tech, including AI and cloud technologies. My work
+              emphasizes clean code, performance, and user experience.
             </p>
 
             <div className='flex flex-wrap gap-4 pt-4 items-center'>

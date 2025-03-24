@@ -9,7 +9,7 @@ const projects = [
     id: 1,
     title: 'Grade Viewing/Analysis Mobile App',
     description:
-      'Developed a successful mobile application that greatly improved grade tracking for students by integrating with the school district&apos;s SOAP API to provide real-time academic insights. Reached 100+ downloads across both iOS and Android platforms. Implemented Sentry for production monitoring and reduced app size by 40% through Android App Bundle optimization.',
+      "Developed a successful mobile application that greatly improved grade tracking for students by integrating with the school district's SOAP API to provide real-time academic insights. Reached 100+ downloads across both iOS and Android platforms. Implemented Sentry for production monitoring and reduced app size by 40% through Android App Bundle optimization.",
     image: '/images/grade_helper.png',
     technologies: ['React Native', 'Typescript', 'SOAP API', 'iOS', 'Android', 'Expo'],
     githubUrl: 'https://github.com/yyrichy/Summit',
@@ -51,31 +51,43 @@ export function Projects() {
             {projects.map((project) => (
               <div
                 key={project.id}
-                className='group relative bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm overflow-hidden shadow-lg transition-all duration-200 border border-stone-200/20 dark:border-stone-700/20'
-                style={{
-                  borderRadius: '0.75rem',
-                }}
-              >
-                <div className='absolute inset-0 bg-gradient-to-br from-blue-500/5 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+                onMouseMove={(e) => {
+                  const card = e.currentTarget;
+                  const rect = card.getBoundingClientRect();
+                  const x = e.clientX - rect.left;
+                  const y = e.clientY - rect.top;
 
-                <div className='relative aspect-video overflow-hidden'>
+                  const centerX = rect.width / 2;
+                  const centerY = rect.height / 2;
+
+                  const rotateX = (y - centerY) / 30;
+                  const rotateY = -((x - centerX) / 50);
+
+                  card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+                }}
+                className='relative bg-white/50 dark:bg-gray-800/50 overflow-hidden shadow-lg border border-stone-200/20 dark:border-stone-700/20 rounded-xl transition-all duration-200 ease-out'
+              >
+                <div className='relative aspect-video overflow-hidden group transform-style-preserve-3d'>
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className='object-cover transition-transform duration-300 group-hover:scale-102'
+                    className='object-cover transition-transform duration-500 ease-in-out group-hover:scale-120 transform-gpu'
                   />
-                  <div className='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+                  <div className='absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 z-10' />
                 </div>
 
                 <div className='p-6'>
-                  <h3 className='text-xl font-bold mb-3 text-gray-900 dark:text-white transition-colors duration-300'>{project.title}</h3>
+                  <h3 className='text-xl font-bold mb-3 text-gray-900 dark:text-white'>{project.title}</h3>
 
                   <div className='flex flex-wrap gap-2 mb-4'>
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className='px-2 py-1 text-sm bg-stone-100/50 dark:bg-stone-800/50 text-stone-600 dark:text-stone-300 rounded-md'
+                        className='px-3 py-1.5 bg-gradient-to-r from-stone-50/30 via-gray-50/30 to-stone-50/30 dark:from-stone-900/30 dark:via-gray-900/30 dark:to-stone-900/30 text-stone-600/90 dark:text-stone-300/90 rounded-lg text-sm font-medium border border-stone-200/30 dark:border-stone-700/30 backdrop-blur-[1px] shadow-sm hover:shadow hover:border-stone-300/40 dark:hover:border-stone-600/40 transition-all'
                       >
                         {tech}
                       </span>
@@ -90,7 +102,7 @@ export function Projects() {
                         href={project.githubUrl}
                         target='_blank'
                         rel='noopener noreferrer'
-                        className='text-stone-600 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-colors'
+                        className='text-stone-600 dark:text-stone-400 hover:text-primary dark:hover:text-primary transition-colors transform hover:scale-110'
                       >
                         <svg
                           xmlns='http://www.w3.org/2000/svg'
@@ -113,7 +125,7 @@ export function Projects() {
                         href={project.liveUrl}
                         target='_blank'
                         rel='noopener noreferrer'
-                        className='text-stone-600 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-colors'
+                        className='text-stone-600 dark:text-stone-400 hover:text-primary dark:hover:text-primary transition-colors transform hover:scale-110'
                       >
                         <svg
                           xmlns='http://www.w3.org/2000/svg'
