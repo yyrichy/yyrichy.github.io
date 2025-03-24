@@ -2,7 +2,6 @@
 'use client';
 
 import Image from 'next/image';
-import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 
 // Sample experience data
@@ -73,7 +72,7 @@ export function Experience() {
           <div className='absolute left-[100px] sm:left-[120px] md:left-[160px] h-full w-px bg-gradient-to-b from-stone-400 to-gray-500 dark:from-stone-600 dark:to-gray-700' />
 
           <div className='space-y-16'>
-            {experiences.map((exp, index) => (
+            {experiences.map((exp) => (
               <motion.div
                 key={exp.id}
                 initial={{ opacity: 0 }}

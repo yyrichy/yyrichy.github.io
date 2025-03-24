@@ -48,7 +48,7 @@ export function Projects() {
           </p>
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12'>
-            {projects.map((project, index) => (
+            {projects.map((project) => (
               <div
                 key={project.id}
                 className='group relative bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm overflow-hidden shadow-lg transition-all duration-200 border border-stone-200/20 dark:border-stone-700/20'
