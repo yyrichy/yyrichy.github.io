@@ -8,8 +8,8 @@ export default function Home() {
   return (
     <div className='flex flex-col'>
       <Hero />
-      <Projects />
       <Experience />
+      <Projects />
       <Contact />
     </div>
   );

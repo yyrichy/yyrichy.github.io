@@ -21,27 +21,28 @@ export function Navbar() {
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-background/80 backdrop-blur-md shadow-sm' : 'bg-transparent'
+        scrolled ? 'bg-background/80 backdrop-blur-md border-b border-stone-200/20 dark:border-stone-700/20' : 'bg-transparent'
       }`}
     >
       <div className='w-full max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='flex items-center justify-between py-4'>
           <Link href='/' className='text-xl font-bold'>
-            Richard Yin<span className='text-primary'>.dev</span>
+            Richard Yin<span className='text-stone-600 dark:text-stone-400'>.dev</span>
           </Link>
 
           {/* Desktop Navigation */}
           <div className='hidden md:flex items-center gap-6'>
-            <Link href='#about' className='hover:text-primary transition-colors'>
+            <Link href='#about' className='hover:text-stone-700 dark:hover:text-stone-300 transition-colors'>
               About
             </Link>
-            <Link href='#projects' className='hover:text-primary transition-colors'>
-              Projects
-            </Link>
-            <Link href='#experience' className='hover:text-primary transition-colors'>
+            <Link href='#experience' className='hover:text-stone-700 dark:hover:text-stone-300 transition-colors'>
               Experience
             </Link>
-            <Link href='#contact' className='hover:text-primary transition-colors'>
+            <Link href='#projects' className='hover:text-stone-700 dark:hover:text-stone-300 transition-colors'>
+              Projects
+            </Link>
+
+            <Link href='#contact' className='hover:text-stone-700 dark:hover:text-stone-300 transition-colors'>
               Contact
             </Link>
             <a href='/Richard_Yin_Resume.pdf' target='_blank' rel='noopener noreferrer'>
@@ -95,18 +96,34 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className='md:hidden absolute w-full bg-background border-b py-4'>
+        <div className='md:hidden absolute w-full bg-background/95 backdrop-blur-md border-b border-stone-200/20 dark:border-stone-700/20 py-4'>
           <div className='w-full max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-4'>
-            <Link href='#about' className='hover:text-primary transition-colors' onClick={() => setIsMenuOpen(false)}>
+            <Link
+              href='#about'
+              className='hover:text-stone-700 dark:hover:text-stone-300 transition-colors'
+              onClick={() => setIsMenuOpen(false)}
+            >
               About
             </Link>
-            <Link href='#projects' className='hover:text-primary transition-colors' onClick={() => setIsMenuOpen(false)}>
+            <Link
+              href='#projects'
+              className='hover:text-stone-700 dark:hover:text-stone-300 transition-colors'
+              onClick={() => setIsMenuOpen(false)}
+            >
               Projects
             </Link>
-            <Link href='#experience' className='hover:text-primary transition-colors' onClick={() => setIsMenuOpen(false)}>
+            <Link
+              href='#experience'
+              className='hover:text-stone-700 dark:hover:text-stone-300 transition-colors'
+              onClick={() => setIsMenuOpen(false)}
+            >
               Experience
             </Link>
-            <Link href='#contact' className='hover:text-primary transition-colors' onClick={() => setIsMenuOpen(false)}>
+            <Link
+              href='#contact'
+              className='hover:text-stone-700 dark:hover:text-stone-300 transition-colors'
+              onClick={() => setIsMenuOpen(false)}
+            >
               Contact
             </Link>
             <a href='/Richard_Yin_Resume.pdf' target='_blank' rel='noopener noreferrer'>
