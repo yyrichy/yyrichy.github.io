@@ -32,12 +32,7 @@ export function Contact() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className='w-full bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-xl p-6 space-y-4 border border-stone-200/20 dark:border-stone-700/20'
           >
-            <div className='mb-6'>
-              <h3 className='text-xl font-bold text-gray-900 dark:text-white mb-2'>Contact Information</h3>
-              <p className='text-gray-600 dark:text-gray-300'>
-                I&apos;m currently looking for new opportunities. Don&apos;t hesitate to contact me!
-              </p>
-            </div>
+            <h3 className='text-xl font-bold text-gray-900 dark:text-white mb-4'>Contact Information</h3>
             <div className='flex items-center gap-3'>
               <Mail size={20} className='text-stone-600 dark:text-stone-400' />
               <a href='mailto:richyin.99@gmail.com' className='hover:text-stone-700 dark:hover:text-stone-300 transition-colors'>
@@ -109,18 +104,19 @@ export function Contact() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className='w-full bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-stone-200/20 dark:border-stone-700/20'
           >
-            <div className='mb-6'>
-              <h3 className='text-xl font-bold text-gray-900 dark:text-white mb-2'>Alternative Contact Methods</h3>
-              <p className='text-gray-600 dark:text-gray-300'>You can also reach me through these platforms</p>
-            </div>
+            <h3 className='text-xl font-bold text-gray-900 dark:text-white'>More Info</h3>
             <div className='space-y-6 bg-gradient-to-br from-stone-50 to-gray-50 dark:from-stone-900/10 dark:to-gray-900/10 rounded-xl border border-stone-200/10 dark:border-stone-700/10'>
-              <a href='/Richard_Yin_Resume.pdf' download className='flex items-center gap-4 p-4 rounded-lg'>
+              <a
+                href='/Richard_Yin_Resume.pdf'
+                download
+                className='flex items-center gap-4 p-4 rounded-lg hover:bg-stone-200/50 dark:hover:bg-stone-800/50 transition-colors'
+              >
                 <div className='bg-stone-600/10 dark:bg-stone-400/10 p-3 rounded-full'>
                   <FileText size={20} className='text-stone-600 dark:text-stone-400' />
                 </div>
                 <div>
                   <h3 className='font-medium'>Resume</h3>
-                  <p className='text-sm text-muted-foreground'>Click to download my resume for a detailed overview of my experience</p>
+                  <p className='text-sm text-muted-foreground'>Click to download my resume for a more detailed overview of my experience</p>
                 </div>
               </a>
             </div>

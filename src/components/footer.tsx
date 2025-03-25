@@ -140,7 +140,7 @@ export function Footer() {
         {/* Copyright and attribution */}
         <div className='mt-8 pt-8 border-t border-muted flex flex-col md:flex-row justify-between items-center'>
           <p className='text-sm text-muted-foreground'>© {new Date().getFullYear()} Richard Yin. All rights reserved.</p>
-          <p className='text-sm text-muted-foreground mt-2 md:mt-0'>Built with Next.js, Tailwind CSS, and Shadcn/UI</p>
+          <p className='text-sm text-muted-foreground mt-2 md:mt-0'>Built with Next.js, Tailwind CSS, Motion, and Radix UI</p>
         </div>
       </div>
     </footer>
