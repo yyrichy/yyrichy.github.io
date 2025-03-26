@@ -54,18 +54,10 @@ export function Experience() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className='text-4xl md:text-5xl font-bold mb-4 text-center text-gray-900 dark:text-gray-100'
+          className='text-4xl md:text-5xl font-bold mb-16 text-center text-gray-900 dark:text-gray-100'
         >
           Experience
         </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className='text-gray-700 dark:text-gray-200 text-center max-w-2xl mx-auto mb-16 text-lg'
-        >
-          My professional journey as a software engineering intern, where I&apos;ve applied my skills in real-world environments.
-        </motion.p>
 
         <div className='relative'>
           {/* Vertical Timeline Line */}

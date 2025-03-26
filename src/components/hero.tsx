@@ -33,54 +33,6 @@ export function Hero() {
 
   return (
     <section className='relative w-full min-h-screen flex items-center pt-16 overflow-hidden'>
-      {/* Background gradient - full width */}
-      <div className='absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-stone-100 via-stone-50 to-stone-200/50 dark:from-stone-900 dark:via-stone-800/50 dark:to-stone-950 z-0' />
-
-      {/* Decorative patterns - Japanese/Streetwear inspired */}
-      <div className='absolute inset-0 overflow-hidden z-0'>
-        {/* Diagonal lines */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 0.08, x: 0 }}
-          transition={{ duration: 0.8, type: 'spring', stiffness: 50 }}
-          className='absolute -left-1/4 top-0 w-full h-[150%] bg-gradient-to-r from-stone-400/20 to-stone-300/10 dark:from-stone-400/10 dark:to-stone-500/5 transform -rotate-45'
-        />
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 0.08, x: 0 }}
-          transition={{ duration: 0.8, type: 'spring', stiffness: 50 }}
-          className='absolute -right-1/4 top-1/4 w-full h-[150%] bg-gradient-to-l from-stone-400/20 to-stone-300/10 dark:from-stone-400/10 dark:to-stone-500/5 transform -rotate-45'
-        />
-
-        {/* Geometric shapes */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 0.06, scale: 1 }}
-          transition={{ duration: 0.8, type: 'spring', stiffness: 100 }}
-          className='absolute top-1/4 left-1/4 w-64 h-64 border border-stone-400/30 dark:border-stone-500/30 transform rotate-45'
-        />
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 0.06, scale: 1 }}
-          transition={{ duration: 0.8, type: 'spring', stiffness: 100 }}
-          className='absolute bottom-1/4 right-1/4 w-96 h-96 border border-stone-400/30 dark:border-stone-500/30 transform -rotate-12'
-        />
-
-        {/* Abstract lines */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 0.08, x: 0 }}
-          transition={{ duration: 0.8, type: 'spring', stiffness: 50 }}
-          className='absolute top-1/3 left-0 w-1/3 h-px bg-gradient-to-r from-stone-400/40 to-transparent transform -rotate-12'
-        />
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 0.08, x: 0 }}
-          transition={{ duration: 0.8, type: 'spring', stiffness: 50 }}
-          className='absolute bottom-1/3 right-0 w-1/3 h-px bg-gradient-to-l from-stone-400/40 to-transparent transform rotate-12'
-        />
-      </div>
-
       <div className='container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full'>
         <div className='flex flex-col lg:flex-row items-center justify-between gap-12 w-full'>
           <div className='lg:w-1/2 space-y-3 md:space-y-6'>
@@ -104,8 +56,7 @@ export function Hero() {
             </div>
 
             <p className='text-lg text-stone-600 dark:text-stone-400 max-w-xl font-light leading-relaxed'>
-              I&apos;m building full-stack applications and always learning new tech, including AI and cloud technologies. My work
-              emphasizes clean code, performance, and user experience.
+              I&apos;m building full-stack applications and always learning new tech, including AI and cloud technologies.
             </p>
 
             <div className='flex flex-wrap gap-4 pt-4 items-center'>
@@ -151,7 +102,7 @@ export function Hero() {
               </motion.a>
             </div>
 
-            <div className='pt-8'>
+            <div className='pt-4'>
               <p className='text-sm text-muted-foreground mb-3'>My Tech Stack</p>
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className='flex flex-wrap gap-3'>
                 {['React', 'TypeScript', 'Python', 'AWS', 'SQL', 'Java', 'TailwindCSS', 'React Native', 'Supabase'].map((tech) => (
@@ -196,27 +147,71 @@ export function Hero() {
         </div>
 
         {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className='absolute bottom-10 left-1/2 transform -translate-x-1/2 hidden lg:flex flex-col items-center animate-bounce'
-        >
-          <span className='text-sm text-muted-foreground mb-2'>Scroll Down</span>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            width='20'
-            height='20'
-            viewBox='0 0 24 24'
-            fill='none'
-            stroke='currentColor'
-            strokeWidth='2'
-            strokeLinecap='round'
-            strokeLinejoin='round'
+        <div className='absolute bottom-1 left-1/2 transform -translate-x-1/2 hidden lg:flex items-center justify-center'>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className='relative w-16 h-16 cursor-pointer'
+            onClick={() => {
+              document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
+            }}
           >
-            <path d='M12 5v14M5 12l7 7 7-7' />
-          </svg>
-        </motion.div>
+            {/* Outer circle */}
+            <motion.div
+              className='absolute inset-0 rounded-full border-2 border-stone-400/20 dark:border-stone-600/20'
+              animate={{
+                scale: [1, 1.1, 1],
+                opacity: [0.5, 0.8, 0.5],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            />
+            {/* Inner circle */}
+            <motion.div
+              className='absolute inset-2 rounded-full border-2 border-stone-400/30 dark:border-stone-600/30 bg-gradient-to-b from-stone-200/10 to-stone-100/5 dark:from-stone-700/10 dark:to-stone-800/5 backdrop-blur-sm'
+              animate={{
+                scale: [1, 0.9, 1],
+                opacity: [0.8, 1, 0.8],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: 0.2,
+              }}
+            />
+            {/* Animated arrows */}
+            <motion.div
+              className='absolute inset-0 flex items-center justify-center'
+              initial={{ y: 0 }}
+              animate={{ y: [0, 4, 0] }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            >
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                width='24'
+                height='24'
+                viewBox='0 0 24 24'
+                fill='none'
+                stroke='currentColor'
+                strokeWidth='2'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                className='text-stone-500/70 dark:text-stone-400/70'
+              >
+                <path d='M7 13l5 5 5-5M7 6l5 5 5-5' />
+              </svg>
+            </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

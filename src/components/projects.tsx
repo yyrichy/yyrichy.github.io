@@ -37,15 +37,17 @@ const projects = [
 export function Projects() {
   return (
     <section id='projects' className='relative w-full py-32 overflow-hidden'>
-      {/* Subtle gradient background */}
-      <div className='absolute inset-0 bg-gradient-to-br from-stone-50/10 to-gray-100/10 dark:from-stone-950 dark:to-gray-950' />
+      {/* Angular geometric pattern background */}
+      <div className='absolute inset-0'>
+        <div className='absolute inset-0 bg-gradient-to-br from-stone-50/10 via-gray-50/5 to-stone-100/10 dark:from-stone-950 dark:via-gray-900/5 dark:to-stone-900/10' />
+        <div className='absolute inset-0 opacity-[0.02] dark:opacity-[0.03]' style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z' fill='currentColor' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E")`
+        }} />
+      </div>
 
       <div className='relative z-10'>
         <div className='w-full max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8'>
-          <h2 className='text-4xl md:text-5xl font-bold mb-4 text-center text-gray-900 dark:text-gray-100'>Featured Projects</h2>
-          <p className='text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto mb-16 text-lg'>
-            A showcase of my technical projects and creative solutions.
-          </p>
+          <h2 className='text-4xl md:text-5xl font-bold text-center text-gray-900 dark:text-gray-100 mb-16'>Featured Projects</h2>
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12'>
             {projects.map((project) => (
@@ -63,12 +65,17 @@ export function Projects() {
                   const rotateX = (y - centerY) / 30;
                   const rotateY = -((x - centerX) / 50);
 
-                  card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                  requestAnimationFrame(() => {
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(0)`;
+                  });
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+                  const card = e.currentTarget;
+                  requestAnimationFrame(() => {
+                    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0)';
+                  });
                 }}
-                className='relative bg-white/50 dark:bg-gray-800/50 overflow-hidden shadow-lg border border-stone-200/20 dark:border-stone-700/20 rounded-xl transition-all duration-200 ease-out'
+                className='relative bg-white/50 dark:bg-gray-800/50 overflow-hidden shadow-lg border border-stone-200/20 dark:border-stone-700/20 rounded-xl transition-all duration-200 ease-out will-change-transform'
               >
                 <div className='relative aspect-video overflow-hidden group transform-style-preserve-3d'>
                   <Image
