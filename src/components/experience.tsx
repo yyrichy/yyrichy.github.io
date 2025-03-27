@@ -55,13 +55,13 @@ export function Experience() {
 
         <div className='relative'>
           {/* Vertical Timeline Line */}
-          <div className='absolute left-[100px] sm:left-[120px] md:left-[160px] h-full w-px bg-gradient-to-b from-stone-400 to-gray-500 dark:from-stone-600 dark:to-gray-700' />
+          <div className='hidden md:inline-block absolute left-[100px] sm:left-[120px] md:left-[160px] h-full w-px bg-gradient-to-b from-stone-400 to-gray-500 dark:from-stone-600 dark:to-gray-700' />
 
           <div className='space-y-16'>
             {experiences.map((exp) => (
               <div key={exp.id} className='relative flex flex-col md:flex-row items-center gap-6 md:pl-[200px] lg:pl-[240px]'>
                 {/* Timeline Node */}
-                <div className='absolute left-[100px] sm:left-[120px] md:left-[160px] transform -translate-x-1/2 w-4 h-4 rounded-full bg-white dark:bg-gray-800 border-3 border-stone-500 dark:border-stone-400 z-10' />
+                <div className='hidden md:inline-block absolute left-[100px] sm:left-[120px] md:left-[160px] transform -translate-x-1/2 w-4 h-4 rounded-full bg-white dark:bg-gray-800 border-3 border-stone-500 dark:border-stone-400 z-10' />
 
                 {/* Content */}
                 <div className='flex-1 w-full md:w-1/2 p-6 relative overflow-hidden rounded-lg bg-gradient-to-br from-stone-50/10 to-gray-50/10 dark:from-stone-900/10 dark:to-gray-900/10 border border-stone-200/20 dark:border-stone-700/20'>
