@@ -1,15 +1,15 @@
 // app/layout.tsx
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { GeistSans } from 'geist/font/sans';
+import { GeistMono } from 'geist/font/mono';
 import './globals.css';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
-
-const inter = Inter({ subsets: ['latin'] });
+import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
-  title: 'Richard Yin | Software Engineer',
-  description: 'Portfolio website showcasing my projects and experience as a software engineer',
+  title: 'Richard Yin',
+  description: 'Richard Yin\'s Portfolio Website',
 };
 
 export default function RootLayout({
@@ -18,11 +18,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' className='scroll-smooth'>
-      <body className={inter.className}>
-        <Navbar />
-        <main className='min-h-screen pt-8'>{children}</main>
-        <Footer />
+    <html lang='en' suppressHydrationWarning className='scroll-smooth'>
+      <body className={`${GeistSans.variable} ${GeistMono.variable} font-sans antialiased`}>
+        <ThemeProvider defaultTheme="system" storageKey="ui-theme">
+          <Navbar />
+          <main className='min-h-screen pt-8'>{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
