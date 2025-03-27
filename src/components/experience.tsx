@@ -42,13 +42,7 @@ const experiences = [
 
 export function Experience() {
   return (
-    <section
-      id='experience'
-      className='w-full min-h-screen py-20 flex items-center relative overflow-hidden'
-      style={{
-        background: 'linear-gradient(to bottom, rgba(210, 180, 140, 0.05) 0%, rgba(169, 169, 169, 0.03) 50%, transparent 100%)',
-      }}
-    >
+    <section id='experience' className='w-full min-h-screen py-20 flex items-center relative overflow-hidden'>
       <div className='w-full max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8'>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -65,19 +59,12 @@ export function Experience() {
 
           <div className='space-y-16'>
             {experiences.map((exp) => (
-              <motion.div
-                key={exp.id}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-                viewport={{ once: true, margin: '-5%' }}
-                className='relative flex flex-col md:flex-row items-center gap-6 md:pl-[200px] lg:pl-[240px]'
-              >
+              <div key={exp.id} className='relative flex flex-col md:flex-row items-center gap-6 md:pl-[200px] lg:pl-[240px]'>
                 {/* Timeline Node */}
                 <div className='absolute left-[100px] sm:left-[120px] md:left-[160px] transform -translate-x-1/2 w-4 h-4 rounded-full bg-white dark:bg-gray-800 border-3 border-stone-500 dark:border-stone-400 z-10' />
 
                 {/* Content */}
-                <div className='flex-1 w-full md:w-1/2 p-6 relative overflow-hidden rounded-lg bg-gradient-to-br from-stone-50/10 to-gray-50/10 dark:from-stone-900/10 dark:to-gray-900/10 backdrop-blur-[2px] hover:shadow-lg transition-all duration-300 border border-stone-200/20 dark:border-stone-700/20'>
+                <div className='flex-1 w-full md:w-1/2 p-6 relative overflow-hidden rounded-lg bg-gradient-to-br from-stone-50/10 to-gray-50/10 dark:from-stone-900/10 dark:to-gray-900/10 border border-stone-200/20 dark:border-stone-700/20'>
                   <div className='flex items-center gap-4 mb-2'>
                     <div className='relative w-10 h-10 overflow-hidden rounded-lg'>
                       <Image
@@ -99,7 +86,7 @@ export function Experience() {
                       href={exp.website}
                       target='_blank'
                       rel='noopener noreferrer'
-                      className='text-stone-600/80 dark:text-stone-400/80 hover:text-stone-700 dark:hover:text-stone-300 transition-colors mb-4 inline-block'
+                      className='text-stone-600/80 dark:text-stone-400/80 mb-4 inline-block'
                     >
                       {exp.website}
                     </a>
@@ -108,14 +95,14 @@ export function Experience() {
                     {exp.skills.map((skill) => (
                       <span
                         key={skill}
-                        className='px-3 py-1.5 bg-gradient-to-r from-stone-50/30 via-gray-50/30 to-stone-50/30 dark:from-stone-900/30 dark:via-gray-900/30 dark:to-stone-900/30 text-stone-600/90 dark:text-stone-300/90 rounded-lg text-sm font-medium border border-stone-200/30 dark:border-stone-700/30 backdrop-blur-[1px] shadow-sm hover:shadow hover:border-stone-300/40 dark:hover:border-stone-600/40 transition-all'
+                        className='px-3 py-1.5 bg-gradient-to-r from-stone-50/30 via-gray-50/30 to-stone-50/30 dark:from-stone-900/30 dark:via-gray-900/30 dark:to-stone-900/30 text-stone-600/90 dark:text-stone-300/90 rounded-lg text-sm font-medium border border-stone-200/30 dark:border-stone-700/30 backdrop-blur-[1px] shadow-sm'
                       >
                         {skill}
                       </span>
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
