@@ -5,7 +5,6 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
 import { MapPin } from 'lucide-react';
-import { Badge } from './ui/badge';
 
 export function Hero() {
   const [typedText, setTypedText] = useState('');
