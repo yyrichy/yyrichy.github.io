@@ -129,13 +129,6 @@ export function Hero() {
               </div>
 
               {/* Floating badges */}
-              <div className='absolute -top-4 -right-4'>
-                <Badge variant='outline' className='bg-background shadow-lg rounded-lg p-3 flex items-center gap-2'>
-                  <div className='w-3 h-3 bg-green-500 rounded-full animate-pulse' />
-                  <span className='text-sm font-medium'>Open to Work</span>
-                </Badge>
-              </div>
-
               <div className='absolute -bottom-4 -left-4 bg-background shadow-lg rounded-lg p-3'>
                 <div className='flex items-center gap-2'>
                   <MapPin size={16} className='text-primary' />

@@ -7,30 +7,32 @@ import Image from 'next/image';
 const projects = [
   {
     id: 1,
-    title: 'Grade Viewing/Analysis Mobile App',
+    title: "Grade Viewing/Analysis Mobile App",
     description:
       "Developed a successful mobile application that greatly improved grade tracking for students by integrating with the school district's SOAP API to provide real-time academic insights. Reached 100+ downloads across both iOS and Android platforms. Implemented Sentry for production monitoring and reduced app size by 40% through Android App Bundle optimization.",
-    image: '/images/grade_helper.png',
-    technologies: ['React Native', 'Typescript', 'SOAP API', 'iOS', 'Android', 'Expo'],
-    githubUrl: 'https://github.com/yyrichy/Summit',
+    image: "/images/grade_helper.png",
+    technologies: ["React Native", "Typescript", "SOAP API", "iOS", "Android", "Expo"],
+    githubUrl: "https://github.com/yyrichy/Summit",
   },
   {
     id: 2,
-    title: 'App Development Club Website',
+    title: "AI Class Schedule Generator",
     description:
-      'Worked with other club members to redesign and redevelop the club website using React, significantly improved user engagement. Created immersive user experiences through Framer Motion and Atropos animations. Implemented a MongoDB backend to dynamically manage project content, eliminating manual updates.',
-    image: '/images/app_dev_club.png',
-    technologies: ['React', 'TailwindCSS', 'Typescript', 'MongoDB'],
-    liveUrl: 'https://appdevclub.com',
-    githubUrl: 'https://github.com/appdevumd/website-v2',
+      "Developed in a hackathon (Bitcamp 2025) a semantic course-matching web app that generates tailored class schedules from natural language queries. Implemented similarity search using HuggingFace Sentence Transformers and LangChain's MemoryVectorStore to match course descriptions with user interests.",
+    image: "/images/testudo_match.png",
+    technologies: ["Gemini", "LangChain", "HuggingFace", "Typescript", "Next.js"],
+    liveUrl: "https://devpost.com/software/testudo-match",
+    githubUrl: "https://github.com/yyrichy/scheduleit",
   },
   {
     id: 3,
-    title: 'SOLve Android App',
+    title: "App Development Club Website",
     description:
-      'Worked in an agile team for the BranchOut! organization to create an app for the National Congressional App Challenge. App contained practice test questions for Virginia students taking the Virginia Standards of Learning exams, designed to help them study. Used Firebase for backend and authentication. Front-end created with Android Studio using Java and Kotlin.',
-    image: '/images/branch_out.png',
-    technologies: ['Android Studio', 'Java', 'Kotlin', 'Firebase'],
+      "Worked with other club members to redesign and redevelop the club website using React, significantly improved user engagement. Created immersive user experiences through Framer Motion and Atropos animations. Implemented a MongoDB backend to dynamically manage project content, eliminating manual updates.",
+    image: "/images/app_dev_club.png",
+    technologies: ["React", "TailwindCSS", "Typescript", "MongoDB"],
+    liveUrl: "https://appdevclub.com",
+    githubUrl: "https://github.com/appdevumd/website-v2",
   },
 ];
 
