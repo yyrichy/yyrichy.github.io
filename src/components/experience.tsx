@@ -10,16 +10,16 @@ const experiences = [
     id: 1,
     company: "Children's National Hospital",
     role: 'Software Engineering Intern',
-    duration: 'September 2024 - Current',
+    duration: 'September 2024 - May 2025',
     description:
-      'Developing a mobile app and backend system for monitoring breathing tube effectiveness in children with tracheostomy. The app communicates with our device running real-time CO2 level analysis to alert nurses and parents during emergencies. The backend device uses TimescaleDB for time-series data, users and nurses added to PostgreSQL database via web application. Working with other university students.',
+      'Developed a mobile app and backend system for monitoring breathing tube effectiveness in children with tracheostomy. The app communicates with our device running real-time CO2 level analysis to alert nurses and parents during emergencies. The backend device uses TimescaleDB for time-series data, users and nurses added to PostgreSQL database via web application. Worked with other university students.',
     image: '/images/national.png',
     skills: ['Flutter', 'Python', 'TimescaleDB', 'PostgreSQL', 'NumPy'],
   },
   {
     id: 2,
     company: 'Tramona',
-    role: 'Web Developer Intern',
+    role: 'Software Engineer Intern',
     duration: 'September 2024 - December 2024',
     description:
       'Developed the web platform for a startup helping Airbnb hosts fill vacant rental nights. Optimized performance, reducing page load times by 50% through memoization and lazy loading. Designed and implemented a calendar feature for hosts to block/unblock specific dates for reservations.',
@@ -30,10 +30,10 @@ const experiences = [
   {
     id: 3,
     company: 'App Development Club University of Maryland',
-    role: 'Frontend Developer',
+    role: 'Software Engineer',
     duration: 'January 2024 - Current',
     description:
-      "Member of a university programming club collaborating with Fortune 500 companies (Amazon, MITRE, CNH, etc.). Contributed to rebuilding the club's website using React.",
+      "Member of a university programming club collaborating with Fortune 500 companies (Amazon, MITRE, CNH, etc.). Contributed to rebuilding the club's website using React and TailwindCSS.",
     image: '/images/app_dev_logo.png',
     skills: ['React', 'HTML/CSS', 'Typescript', 'Figma', 'MongoDB'],
     website: 'https://appdevclub.com',
