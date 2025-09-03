@@ -9,7 +9,7 @@ export function Footer() {
           {/* Column 1: Logo and brief description */}
           <div className='md:col-span-1'>
             <Link href='/' className='text-xl font-bold'>
-              Richard Yin<span className='text-primary'>.dev</span>
+              yyrichy<span className='text-primary'>.github.io</span>
             </Link>
             <p className='mt-4 text-sm text-muted-foreground'>
               Software engineering student developing easy to use and enjoyable applications with current tech.

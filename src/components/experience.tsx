@@ -8,8 +8,18 @@ import { motion } from 'framer-motion';
 const experiences = [
   {
     id: 1,
+    company: 'Echostar',
+    role: 'Aeronautical Software Engineer Intern',
+    duration: 'June 2025 - August 2025',
+    description:
+      'Designed and implemented an embedded Go (GoLang) network connectivity monitoring system, running on Delta aircraft through Docker, performing real-time network and service tests. Replaced a fragile Python-based system that suffered from missed test runs by using ticker-based scheduling and timeout-bound goroutines, reducing CPU usage by 50%.',
+    image: '/images/echostar_logo.png',
+    skills: ['Go', 'Docker', 'Python'],
+  },
+  {
+    id: 2,
     company: "Children's National Hospital",
-    role: 'Software Engineering Intern',
+    role: 'Software Engineer Intern',
     duration: 'September 2024 - May 2025',
     description:
       'Developed a mobile app and backend system for monitoring breathing tube effectiveness in children with tracheostomy. The app communicates with our device running real-time CO2 level analysis to alert nurses and parents during emergencies. The backend device uses TimescaleDB for time-series data, users and nurses added to PostgreSQL database via web application. Worked with other university students.',
@@ -17,7 +27,7 @@ const experiences = [
     skills: ['Flutter', 'Python', 'TimescaleDB', 'PostgreSQL', 'NumPy'],
   },
   {
-    id: 2,
+    id: 3,
     company: 'Tramona',
     role: 'Software Engineer Intern',
     duration: 'September 2024 - December 2024',
@@ -28,10 +38,10 @@ const experiences = [
     website: 'https://tramona.com',
   },
   {
-    id: 3,
+    id: 4,
     company: 'App Development Club University of Maryland',
     role: 'Software Engineer',
-    duration: 'January 2024 - Current',
+    duration: 'January 2024 - May 2025',
     description:
       "Member of a university programming club collaborating with Fortune 500 companies (Amazon, MITRE, CNH, etc.). Contributed to rebuilding the club's website using React and TailwindCSS.",
     image: '/images/app_dev_logo.png',

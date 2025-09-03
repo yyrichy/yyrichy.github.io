@@ -33,8 +33,8 @@ export function Hero() {
   return (
     <section className='relative w-full min-h-screen flex items-center pt-16 overflow-hidden'>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full'>
-        <div className='flex flex-col lg:flex-row items-center justify-between gap-12 w-full'>
-          <div className='lg:w-1/2 space-y-3 md:space-y-6'>
+        <div className='flex flex-col lg:flex-row items-center justify-center gap-12 w-full'>
+          <div className='space-y-3'>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -113,27 +113,6 @@ export function Hero() {
                   </div>
                 ))}
               </motion.div>
-            </div>
-          </div>
-
-          <div className='lg:w-1/2 flex justify-center lg:justify-end w-full'>
-            <div className='relative'>
-              {/* Decorative elements */}
-              <div className='absolute -top-6 -left-6 w-24 h-24 bg-primary/10 rounded-full blur-xl' />
-              <div className='absolute -bottom-6 -right-6 w-24 h-24 bg-primary/10 rounded-full blur-xl' />
-
-              {/* Profile image with border */}
-              <div className='relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-background shadow-xl'>
-                <Image src='/images/profile.png' alt='My photo' fill className='object-cover' priority />
-              </div>
-
-              {/* Floating badges */}
-              <div className='absolute -bottom-4 -left-4 bg-background shadow-lg rounded-lg p-3'>
-                <div className='flex items-center gap-2'>
-                  <MapPin size={16} className='text-primary' />
-                  <span className='text-sm font-medium'>Washington, D.C.</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>

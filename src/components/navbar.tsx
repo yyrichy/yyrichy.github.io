@@ -28,7 +28,7 @@ export function Navbar() {
       <div className='w-full max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='flex items-center justify-between py-4'>
           <Link href='/' className='text-xl font-bold'>
-            Richard Yin<span className='text-stone-600 dark:text-stone-400'>.dev</span>
+            yyrichy<span className='text-stone-600 dark:text-stone-400'>.github.io</span>
           </Link>
 
           {/* Desktop Navigation */}
