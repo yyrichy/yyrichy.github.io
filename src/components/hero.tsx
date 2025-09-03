@@ -102,7 +102,7 @@ export function Hero() {
             <div className='pt-4'>
               <p className='text-sm text-muted-foreground mb-3'>My Tech Stack</p>
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className='flex flex-wrap gap-3'>
-                {['React', 'TypeScript', 'Python', 'AWS', 'SQL', 'Java', 'TailwindCSS', 'React Native', 'Supabase'].map((tech) => (
+                {['TypeScript', 'Python', 'Go', 'AWS', 'SQL', 'Java', 'TailwindCSS', 'React & React Native'].map((tech) => (
                   <div
                     key={tech}
                     className='flex items-center gap-2 bg-gradient-to-r from-stone-100 to-gray-100 dark:from-stone-900/30 dark:to-gray-900/30 px-3 py-1 rounded-full text-sm text-stone-700 dark:text-stone-300 shadow-md'
