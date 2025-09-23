@@ -30,7 +30,7 @@ export function Contact() {
               transition={{ duration: 0.6 }}
               className='text-4xl md:text-5xl font-bold font-serif'
             >
-              Let's Connect
+              Let&apos;s Connect
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
