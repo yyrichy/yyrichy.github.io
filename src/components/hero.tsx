@@ -19,7 +19,8 @@ export function Hero() {
           transition={{ duration: 0.8 }}
           className='text-5xl md:text-6xl lg:text-7xl font-serif font-medium tracking-tight'
         >
-          Hi, I&apos;m <span className='bg-gradient-to-r from-primary via-green-500 to-accent text-transparent bg-clip-text'>Richard Yin</span>
+          Hi, I&apos;m{' '}
+          <span className='bg-gradient-to-r from-primary via-green-500 to-accent text-transparent bg-clip-text'>Richard Yin</span>
         </motion.h1>
 
         <motion.p
@@ -75,7 +76,7 @@ export function Hero() {
               </svg>
             </a>
           </div>
-          <p className='text-sm tracking-wide'>TypeScript · Python · Go · AWS · SQL · React</p>
+          <p className='text-sm tracking-wide'>TypeScript · Python · AWS · SQL · React · Java · & More</p>
         </motion.div>
       </div>
     </section>
