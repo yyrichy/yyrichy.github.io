@@ -19,35 +19,37 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const navLinkClasses =
+    'relative hover:text-foreground transition-colors after:content-[""] after:absolute after:left-0 after:bottom-[-4px] after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full';
+
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-background/80 backdrop-blur-md border-b border-stone-200/20 dark:border-stone-700/20' : 'bg-transparent'
+        scrolled ? 'bg-background/80 backdrop-blur-md border-b border-border' : 'bg-transparent'
       }`}
     >
       <div className='w-full max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='flex items-center justify-between py-4'>
           <Link href='/' className='text-xl font-bold'>
-            yyrichy<span className='text-stone-600 dark:text-stone-400'>.github.io</span>
+            yyrichy<span className='text-muted-foreground'>.github.io</span>
           </Link>
 
           {/* Desktop Navigation */}
           <div className='hidden md:flex items-center gap-6'>
-            <Link href='#about' className='hover:text-stone-700 dark:hover:text-stone-300 transition-colors'>
+            <Link href='#about' className={navLinkClasses}>
               About
             </Link>
-            <Link href='#experience' className='hover:text-stone-700 dark:hover:text-stone-300 transition-colors'>
+            <Link href='#experience' className={navLinkClasses}>
               Experience
             </Link>
-            <Link href='#projects' className='hover:text-stone-700 dark:hover:text-stone-300 transition-colors'>
+            <Link href='#projects' className={navLinkClasses}>
               Projects
             </Link>
-
-            <Link href='#contact' className='hover:text-stone-700 dark:hover:text-stone-300 transition-colors'>
+            <Link href='#contact' className={navLinkClasses}>
               Contact
             </Link>
             <a href='/Richard_Yin_Resume.pdf' target='_blank' rel='noopener noreferrer'>
-              <Button variant='default' className='flex items-center gap-2'>
+              <Button variant='cta' className='flex items-center gap-2'>
                 <ExternalLink size={16} />
                 Resume
               </Button>
@@ -55,7 +57,7 @@ export function Navbar() {
             <ThemeToggle />
           </div>
 
-          {/* Mobile Navigation */}
+          {/* Mobile Navigation Toggle */}
           <div className='md:hidden'>
             <Button variant='ghost' size='icon' onClick={() => setIsMenuOpen(!isMenuOpen)}>
               <span className='sr-only'>Toggle menu</span>
@@ -98,43 +100,29 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className='md:hidden absolute w-full bg-background/95 backdrop-blur-md border-b border-stone-200/20 dark:border-stone-700/20 py-4'>
+        <div className='md:hidden absolute w-full bg-background/95 backdrop-blur-md border-b border-border py-4'>
           <div className='w-full max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-4'>
-            <Link
-              href='#about'
-              className='hover:text-stone-700 dark:hover:text-stone-300 transition-colors'
-              onClick={() => setIsMenuOpen(false)}
-            >
+            <Link href='#about' className='hover:text-foreground transition-colors' onClick={() => setIsMenuOpen(false)}>
               About
             </Link>
-            <Link
-              href='#projects'
-              className='hover:text-stone-700 dark:hover:text-stone-300 transition-colors'
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Projects
-            </Link>
-            <Link
-              href='#experience'
-              className='hover:text-stone-700 dark:hover:text-stone-300 transition-colors'
-              onClick={() => setIsMenuOpen(false)}
-            >
+            <Link href='#experience' className='hover:text-foreground transition-colors' onClick={() => setIsMenuOpen(false)}>
               Experience
             </Link>
-            <Link
-              href='#contact'
-              className='hover:text-stone-700 dark:hover:text-stone-300 transition-colors'
-              onClick={() => setIsMenuOpen(false)}
-            >
+            <Link href='#projects' className='hover:text-foreground transition-colors' onClick={() => setIsMenuOpen(false)}>
+              Projects
+            </Link>
+            <Link href='#contact' className='hover:text-foreground transition-colors' onClick={() => setIsMenuOpen(false)}>
               Contact
             </Link>
             <a href='/Richard_Yin_Resume.pdf' target='_blank' rel='noopener noreferrer'>
-              <Button variant='outline' className='flex items-center gap-2'>
+              <Button variant='cta' className='w-full flex items-center gap-2'>
                 <ExternalLink size={16} />
                 Resume
               </Button>
             </a>
-            <ThemeToggle />
+            <div className='flex justify-center mt-2'>
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       )}

@@ -1,165 +1,175 @@
 // components/projects.tsx
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Badge } from '@/components/ui/badge';
+import { ArrowUpRight, X } from 'lucide-react';
 
-// Sample project data
 const projects = [
   {
-    id: 1,
-    title: "Grade Viewing/Analysis Mobile App",
-    description:
-      "Developed a successful mobile application that greatly improved grade tracking for students by integrating with the school district's SOAP API to provide real-time academic insights. Reached 100+ downloads across both iOS and Android platforms. Implemented Sentry for production monitoring and reduced app size by 40% through Android App Bundle optimization.",
-    image: "/images/grade_helper.png",
-    technologies: ["React Native", "Typescript", "SOAP API", "iOS", "Android", "Expo"],
-    githubUrl: "https://github.com/yyrichy/Summit",
+    id: 2,
+    title: 'AI Class Schedule Generator',
+    shortDescription: 'A semantic course-matching web app that generates tailored class schedules from natural language queries.',
+    fullDescription:
+      "Developed in a hackathon (Bitcamp 2025) a semantic course-matching web app that generates tailored class schedules from natural language queries. Implemented similarity search using HuggingFace Sentence Transformers and LangChain's MemoryVectorStore to match course descriptions with user interests.",
+    image: '/images/testudo_match.png',
+    technologies: ['Gemini', 'LangChain', 'HuggingFace', 'Typescript', 'Next.js'],
+    liveUrl: 'https://devpost.com/software/testudo-match',
   },
   {
-    id: 2,
-    title: "AI Class Schedule Generator",
-    description:
-      "Developed in a hackathon (Bitcamp 2025) a semantic course-matching web app that generates tailored class schedules from natural language queries. Implemented similarity search using HuggingFace Sentence Transformers and LangChain's MemoryVectorStore to match course descriptions with user interests.",
-    image: "/images/testudo_match.png",
-    technologies: ["Gemini", "LangChain", "HuggingFace", "Typescript", "Next.js"],
-    liveUrl: "https://devpost.com/software/testudo-match",
-    githubUrl: "https://github.com/yyrichy/scheduleit",
+    id: 1,
+    title: 'Grade Viewing/Analysis Mobile App',
+    shortDescription: 'A mobile app for students to track grades in real-time by integrating with the school district’s SOAP API.',
+    fullDescription:
+      "Developed a successful mobile application that greatly improved grade tracking for students by integrating with the school district's SOAP API to provide real-time academic insights. Reached 100+ downloads across both iOS and Android platforms. Implemented Sentry for production monitoring and reduced app size by 40% through Android App Bundle optimization.",
+    image: '/images/grade_helper.png',
+    technologies: ['React Native', 'Typescript', 'SOAP API', 'iOS', 'Android', 'Expo'],
+    githubUrl: 'https://github.com/yyrichy/Summit',
   },
   {
     id: 3,
-    title: "App Development Club Website",
-    description:
-      "Worked with other club members to redesign and redevelop the club website using React, significantly improved user engagement. Created immersive user experiences through Framer Motion and Atropos animations. Implemented a MongoDB backend to dynamically manage project content, eliminating manual updates.",
-    image: "/images/app_dev_club.png",
-    technologies: ["React", "TailwindCSS", "Typescript", "MongoDB"],
-    liveUrl: "https://appdevclub.com",
-    githubUrl: "https://github.com/appdevumd/website-v2",
+    title: 'App Development Club Website',
+    shortDescription: 'Redesigned and redeveloped the club website using React, improving user engagement with dynamic content.',
+    fullDescription:
+      'Worked with other club members to redesign and redevelop the club website using React, significantly improved user engagement. Created immersive user experiences through Framer Motion and Atropos animations. Implemented a MongoDB backend to dynamically manage project content, eliminating manual updates.',
+    image: '/images/app_dev_club.png',
+    technologies: ['React', 'TailwindCSS', 'Typescript', 'MongoDB'],
+    liveUrl: 'https://appdevclub.com',
   },
 ];
 
+// NEW: Array of gradient classes for colorful card borders
+const cardBorderColors = ['from-purple-500 to-blue-500', 'from-green-500 to-cyan-500', 'from-amber-500 to-orange-500'];
+
 export function Projects() {
+  const [expandedProjectId, setExpandedProjectId] = useState<number | null>(null);
+
+  const handleCardClick = (id: number) => {
+    setExpandedProjectId(expandedProjectId === id ? null : id);
+  };
+
+  const expandedProject = projects.find((p) => p.id === expandedProjectId);
+
   return (
-    <section id='projects' className='relative w-full py-32 overflow-hidden'>
-      {/* Angular geometric pattern background */}
-      <div className='absolute inset-0'>
-        <div className='absolute inset-0 bg-gradient-to-br from-stone-50/10 via-gray-50/5 to-stone-100/10 dark:from-stone-950 dark:via-gray-900/5 dark:to-stone-900/10' />
-        <div className='absolute inset-0 opacity-[0.02] dark:opacity-[0.03]' style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z' fill='currentColor' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E")`
-        }} />
+    <section id='projects' className='relative w-full py-20 overflow-hidden'>
+      {/* NEW: Added a subtle gradient background to the entire section */}
+      <div className='absolute inset-0 z-0 opacity-20 dark:opacity-30'>
+        <div className='absolute left-0 top-0 h-full w-full bg-gradient-to-br from-primary/20 via-secondary/10 to-background'></div>
       </div>
 
-      <div className='relative z-10'>
-        <div className='w-full max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8'>
-          <h2 className='text-4xl md:text-5xl font-bold text-center text-gray-900 dark:text-gray-100 mb-16'>Featured Projects</h2>
+      <div className='relative z-10 w-full max-w-[2000px] mx-auto px-6 sm:px-10 lg:px-16'>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          // UPDATED: Added gradient text to the heading
+          className='text-4xl md:text-5xl font-bold mb-12 font-serif text-center bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent'
+        >
+          Featured Projects
+        </motion.h2>
 
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12'>
-            {projects.map((project) => (
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              layoutId={`project-card-${project.id}`}
+              onClick={() => handleCardClick(project.id)}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 * (index + 1) }}
+              // UPDATED: Added classes for the glowing gradient border effect
+              className={`relative p-0.5 rounded-2xl group cursor-pointer ${index === 0 ? 'md:col-span-2' : ''}`}
+            >
+              {/* The animated gradient border */}
               <div
-                key={project.id}
-                onMouseMove={(e) => {
-                  const card = e.currentTarget;
-                  const rect = card.getBoundingClientRect();
-                  const x = e.clientX - rect.left;
-                  const y = e.clientY - rect.top;
-
-                  const centerX = rect.width / 2;
-                  const centerY = rect.height / 2;
-
-                  const rotateX = (y - centerY) / 30;
-                  const rotateY = -((x - centerX) / 50);
-
-                  requestAnimationFrame(() => {
-                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(0)`;
-                  });
-                }}
-                onMouseLeave={(e) => {
-                  const card = e.currentTarget;
-                  requestAnimationFrame(() => {
-                    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0)';
-                  });
-                }}
-                className='relative bg-white/50 dark:bg-gray-800/50 overflow-hidden shadow-lg border border-stone-200/20 dark:border-stone-700/20 rounded-xl transition-all duration-200 ease-out will-change-transform'
-              >
-                <div className='relative aspect-video overflow-hidden group transform-style-preserve-3d'>
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className='object-cover transition-transform duration-500 ease-in-out group-hover:scale-120 transform-gpu'
-                  />
-                  <div className='absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 z-10' />
-                </div>
-
-                <div className='p-6'>
-                  <h3 className='text-xl font-bold mb-3 text-gray-900 dark:text-white'>{project.title}</h3>
-
-                  <div className='flex flex-wrap gap-2 mb-4'>
-                    {project.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className='px-3 py-1.5 bg-gradient-to-r from-stone-50/30 via-gray-50/30 to-stone-50/30 dark:from-stone-900/30 dark:via-gray-900/30 dark:to-stone-900/30 text-stone-600/90 dark:text-stone-300/90 rounded-lg text-sm font-medium border border-stone-200/30 dark:border-stone-700/30 backdrop-blur-[1px] shadow-sm hover:shadow hover:border-stone-300/40 dark:hover:border-stone-600/40 transition-all'
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <p className='text-gray-600 dark:text-gray-300 mb-4'>{project.description}</p>
-
-                  <div className='flex gap-4'>
-                    {project.githubUrl && (
-                      <a
-                        href={project.githubUrl}
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        className='text-stone-600 dark:text-stone-400 hover:text-primary dark:hover:text-primary transition-colors transform hover:scale-110'
-                      >
-                        <svg
-                          xmlns='http://www.w3.org/2000/svg'
-                          width='20'
-                          height='20'
-                          viewBox='0 0 24 24'
-                          fill='none'
-                          stroke='currentColor'
-                          strokeWidth='2'
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                        >
-                          <path d='M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4' />
-                          <path d='M9 18c-4.51 2-5-2-7-2' />
-                        </svg>
-                      </a>
-                    )}
-                    {project.liveUrl && (
-                      <a
-                        href={project.liveUrl}
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        className='text-stone-600 dark:text-stone-400 hover:text-primary dark:hover:text-primary transition-colors transform hover:scale-110'
-                      >
-                        <svg
-                          xmlns='http://www.w3.org/2000/svg'
-                          width='20'
-                          height='20'
-                          viewBox='0 0 24 24'
-                          fill='none'
-                          stroke='currentColor'
-                          strokeWidth='2'
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                        >
-                          <path d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6' />
-                          <polyline points='15 3 21 3 21 9' />
-                          <line x1='10' y1='14' x2='21' y2='3' />
-                        </svg>
-                      </a>
-                    )}
-                  </div>
+                className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${
+                  cardBorderColors[index % cardBorderColors.length]
+                } opacity-50 group-hover:opacity-100 transition-opacity duration-300 blur-md group-hover:blur-lg`}
+              />
+              <div className='relative h-96 rounded-[14px] overflow-hidden'>
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className='object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-105'
+                />
+                <div className='absolute inset-0 bg-gradient-to-t from-black/70 to-transparent' />
+                <div className='absolute inset-0 p-8 flex flex-col justify-end text-white'>
+                  <h3 className={`font-serif font-bold ${index === 0 ? 'text-3xl' : 'text-2xl'}`}>{project.title}</h3>
+                  <p className='mt-2 max-w-lg'>{project.shortDescription}</p>
                 </div>
               </div>
-            ))}
-          </div>
+            </motion.div>
+          ))}
         </div>
       </div>
+
+      <AnimatePresence>
+        {expandedProject && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setExpandedProjectId(null)}
+              className='fixed inset-0 bg-black/50 backdrop-blur-sm z-40'
+            />
+            <div className='fixed inset-0 z-50 flex items-center justify-center p-4'>
+              <motion.div
+                layoutId={`project-card-${expandedProject.id}`}
+                className='relative w-full max-w-3xl h-auto max-h-[90vh] bg-card rounded-2xl overflow-hidden'
+              >
+                <div className='relative w-full h-72'>
+                  <Image src={expandedProject.image} alt={expandedProject.title} fill className='object-cover' />
+                </div>
+                <div className='p-8 overflow-y-auto'>
+                  <h2 className='font-serif text-3xl font-bold'>{expandedProject.title}</h2>
+                  <p className='text-muted-foreground mt-4'>{expandedProject.fullDescription}</p>
+                  <div className='flex flex-wrap gap-2 mt-6'>
+                    {expandedProject.technologies.map((tech) => (
+                      <Badge key={tech} variant='secondary'>
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                  <div className='flex gap-4 mt-6'>
+                    {expandedProject.liveUrl && (
+                      <a
+                        href={expandedProject.liveUrl}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        onClick={(e) => e.stopPropagation()}
+                        className='inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors'
+                      >
+                        View Site <ArrowUpRight size={16} />
+                      </a>
+                    )}
+                    {expandedProject.githubUrl && (
+                      <a
+                        href={expandedProject.githubUrl}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        onClick={(e) => e.stopPropagation()}
+                        className='inline-flex items-center gap-2 px-4 py-2 border rounded-full font-medium hover:bg-muted transition-colors'
+                      >
+                        View GitHub
+                      </a>
+                    )}
+                  </div>
+                </div>
+                <button
+                  onClick={() => setExpandedProjectId(null)}
+                  className='absolute top-4 right-4 text-white bg-black/50 rounded-full p-1.5 hover:bg-black/75 transition-colors'
+                >
+                  <X size={20} />
+                </button>
+              </motion.div>
+            </div>
+          </>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

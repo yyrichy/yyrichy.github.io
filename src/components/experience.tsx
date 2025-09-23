@@ -3,9 +3,10 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { Badge } from '@/components/ui/badge';
 
-// Sample experience data
 const experiences = [
+  // ... your experience data remains the same
   {
     id: 1,
     company: 'Echostar',
@@ -22,7 +23,7 @@ const experiences = [
     role: 'Software Engineer Intern',
     duration: 'September 2024 - May 2025',
     description:
-      'Developed a mobile app and backend system for monitoring breathing tube effectiveness in children with tracheostomy. The app communicates with our device running real-time CO2 level analysis to alert nurses and parents during emergencies. The backend device uses TimescaleDB for time-series data, users and nurses added to PostgreSQL database via web application. Worked with other university students.',
+      'Contracted through a club, developed a mobile app and backend system for monitoring breathing tube effectiveness in children with tracheostomy. The app communicates with our device running real-time CO2 level analysis to alert nurses and parents during emergencies. The backend device uses TimescaleDB for time-series data, users and nurses added to PostgreSQL database via web application. Worked with other university students.',
     image: '/images/national.png',
     skills: ['Flutter', 'Python', 'TimescaleDB', 'PostgreSQL', 'NumPy'],
   },
@@ -50,71 +51,57 @@ const experiences = [
   },
 ];
 
+const cardColors = [
+  'from-purple-500/10 to-blue-500/10',
+  'from-green-500/10 to-cyan-500/10',
+  'from-amber-500/10 to-orange-500/10',
+  'from-pink-500/10 to-red-500/10',
+];
+
 export function Experience() {
   return (
-    <section id='experience' className='w-full min-h-screen py-20 flex items-center relative overflow-hidden'>
-      <div className='w-full max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8'>
+    <section id='experience' className='w-full py-20 overflow-hidden'>
+      <div className='w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className='text-4xl md:text-5xl font-bold mb-16 text-center text-gray-900 dark:text-gray-100'
+          className='text-4xl md:text-5xl font-bold mb-16 font-serif text-center'
         >
-          Experience
+          My Journey
         </motion.h2>
 
-        <div className='relative'>
-          {/* Vertical Timeline Line */}
-          <div className='hidden md:inline-block absolute left-[100px] sm:left-[120px] md:left-[160px] h-full w-px bg-gradient-to-b from-stone-400 to-gray-500 dark:from-stone-600 dark:to-gray-700' />
-
-          <div className='space-y-16'>
-            {experiences.map((exp) => (
-              <div key={exp.id} className='relative flex flex-col md:flex-row items-center gap-6 md:pl-[200px] lg:pl-[240px]'>
-                {/* Timeline Node */}
-                <div className='hidden md:inline-block absolute left-[100px] sm:left-[120px] md:left-[160px] transform -translate-x-1/2 w-4 h-4 rounded-full bg-white dark:bg-gray-800 border-3 border-stone-500 dark:border-stone-400 z-10' />
-
-                {/* Content */}
-                <div className='flex-1 w-full md:w-1/2 p-6 relative overflow-hidden rounded-lg bg-gradient-to-br from-stone-50/10 to-gray-50/10 dark:from-stone-900/10 dark:to-gray-900/10 border border-stone-200/20 dark:border-stone-700/20'>
-                  <div className='flex items-center gap-4 mb-2'>
-                    <div className='relative w-10 h-10 overflow-hidden rounded-lg'>
-                      <Image
-                        src={exp.image}
-                        alt={exp.company}
-                        fill
-                        className='object-contain p-2 bg-gradient-to-br from-blue-50/40 to-indigo-50/40 dark:from-blue-900/10 dark:to-indigo-900/10'
-                      />
-                    </div>
-                    <div>
-                      <h3 className='text-xl font-bold text-gray-900 dark:text-white'>{exp.role}</h3>
-                      <p className='text-stone-600/80 dark:text-stone-400/80 font-medium'>{exp.company}</p>
-                    </div>
-                  </div>
-                  <span className='inline-block text-sm font-medium text-stone-600/70 dark:text-stone-400/70 mb-3'>{exp.duration}</span>
-                  <p className='text-gray-700/90 dark:text-gray-200/90 mb-4'>{exp.description}</p>
-                  {exp.website && (
-                    <a
-                      href={exp.website}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      className='text-stone-600/80 dark:text-stone-400/80 mb-4 inline-block'
-                    >
-                      {exp.website}
-                    </a>
-                  )}
-                  <div className='flex flex-wrap gap-2 mt-3'>
+        <div className='space-y-8'>
+          {experiences.map((exp, index) => (
+            <motion.div
+              key={exp.id}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className={`w-full md:w-4/5 p-6 rounded-2xl border border-border bg-gradient-to-r ${cardColors[index % cardColors.length]}
+                ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}
+              `}
+            >
+              <div className='flex items-start gap-4'>
+                <div className='relative w-12 h-12 flex-shrink-0 mt-1 rounded-lg bg-muted p-1.5'>
+                  <Image src={exp.image} alt={exp.company} fill className='object-contain' />
+                </div>
+                <div className='flex-1'>
+                  <p className='text-sm text-muted-foreground'>{exp.duration}</p>
+                  <h3 className='text-xl font-bold font-serif mt-1'>{exp.role}</h3>
+                  <p className='text-muted-foreground font-medium'>{exp.company}</p>
+                  <p className='text-foreground/80 mt-3'>{exp.description}</p>
+                  <div className='flex flex-wrap gap-2 mt-4'>
                     {exp.skills.map((skill) => (
-                      <span
-                        key={skill}
-                        className='px-3 py-1.5 bg-gradient-to-r from-stone-50/30 via-gray-50/30 to-stone-50/30 dark:from-stone-900/30 dark:via-gray-900/30 dark:to-stone-900/30 text-stone-600/90 dark:text-stone-300/90 rounded-lg text-sm font-medium border border-stone-200/30 dark:border-stone-700/30 backdrop-blur-[1px] shadow-sm'
-                      >
+                      <Badge key={skill} variant='secondary'>
                         {skill}
-                      </span>
+                      </Badge>
                     ))}
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
