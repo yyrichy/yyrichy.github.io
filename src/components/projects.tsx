@@ -40,9 +40,6 @@ const projects = [
   },
 ];
 
-// NEW: Array of gradient classes for colorful card borders
-const cardBorderColors = ['from-purple-500 to-blue-500', 'from-green-500 to-cyan-500', 'from-amber-500 to-orange-500'];
-
 export function Projects() {
   const [expandedProjectId, setExpandedProjectId] = useState<number | null>(null);
 
