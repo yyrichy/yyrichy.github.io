@@ -8,7 +8,14 @@
 @theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-serif: var(--font-lora); /* Add this line */
+  --font-serif: var(--font-lora);
+  --font-inconsolata: var(--font-inconsolata);
+}
+
+@layer utilities {
+  .font-inconsolata {
+    font-family: var(--font-inconsolata);
+  }
 }
 
 :root {

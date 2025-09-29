@@ -55,22 +55,19 @@ export function Projects() {
   return (
     <section id='projects' className='relative w-full py-20 overflow-hidden'>
       {/* NEW: Added a subtle gradient background to the entire section */}
-      <div className='absolute inset-0 z-0 opacity-20 dark:opacity-30'>
-        <div className='absolute left-0 top-0 h-full w-full bg-gradient-to-br from-primary/20 via-secondary/10 to-background'></div>
-      </div>
 
-      <div className='relative z-10 w-full max-w-[2000px] mx-auto px-6 sm:px-10 lg:px-16'>
+      <div className='relative z-10 w-full max-w-[2000px] mx-auto px-6 sm:px-10 lg:px-24'>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           // UPDATED: Added gradient text to the heading
-          className='text-4xl md:text-5xl font-bold mb-12 font-serif text-center bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent'
+          className='text-4xl md:text-5xl font-bold mb-16 font-serif text-center'
         >
-          Featured Projects
+          My Projects
         </motion.h2>
 
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-16'>
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -79,15 +76,8 @@ export function Projects() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 * (index + 1) }}
-              // UPDATED: Added classes for the glowing gradient border effect
               className={`relative p-0.5 rounded-2xl group cursor-pointer ${index === 0 ? 'md:col-span-2' : ''}`}
             >
-              {/* The animated gradient border */}
-              <div
-                className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${
-                  cardBorderColors[index % cardBorderColors.length]
-                } opacity-50 group-hover:opacity-100 transition-opacity duration-300 blur-md group-hover:blur-lg`}
-              />
               <div className='relative h-96 rounded-[14px] overflow-hidden'>
                 <Image
                   src={project.image}

@@ -29,6 +29,17 @@ const experiences = [
   },
   {
     id: 3,
+    company: 'Relentless Returns',
+    role: 'Software Engineer Intern',
+    duration: 'January 2025 - May 2025',
+    description:
+      'As first intern at a SEC-registered investment management firm startup, I implemented the initial KYC onboarding form on React.js. Additionally on the backend, automated the generation of monthly client statements and real-time trade confirmations by developing a backend service using express.js to aggregate financial data from Supabase and Alpaca APIs.',
+    image: '/images/rr_logo.png',
+    skills: ['Express.js', 'Next.js', 'Typescript', 'TailwindCSS'],
+    website: 'https://www.relentlessreturns.com/',
+  },
+  {
+    id: 4,
     company: 'Tramona',
     role: 'Software Engineer Intern',
     duration: 'September 2024 - December 2024',
@@ -39,7 +50,7 @@ const experiences = [
     website: 'https://tramona.com',
   },
   {
-    id: 4,
+    id: 5,
     company: 'App Development Club University of Maryland',
     role: 'Software Engineer',
     duration: 'January 2024 - May 2025',
@@ -84,7 +95,7 @@ export function Experience() {
             >
               <div className='flex items-start gap-4'>
                 <div className='relative w-12 h-12 flex-shrink-0 mt-1 rounded-lg bg-muted p-1.5'>
-                  <Image src={exp.image} alt={exp.company} fill className='object-contain' />
+                  <Image src={exp.image} alt={exp.company} fill className='object-contain rounded-lg' />
                 </div>
                 <div className='flex-1'>
                   <p className='text-sm text-muted-foreground'>{exp.duration}</p>

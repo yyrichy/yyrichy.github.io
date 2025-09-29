@@ -17,19 +17,18 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className='text-5xl md:text-6xl lg:text-7xl font-serif font-medium tracking-tight'
+          className='text-5xl md:text-6xl lg:text-8xl font-normal tracking-tight font-inconsolata'
         >
-          Hi, I&apos;m{' '}
-          <span className='bg-gradient-to-r from-primary via-green-500 to-accent text-transparent bg-clip-text'>Richard Yin</span>
+          Hi, I&apos;m <span className='bg-gradient-to-r from-primary to-lime-800 text-transparent bg-clip-text'>Richard Yin</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className='mt-4 text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto'
+          className='mt-4 text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto'
         >
-          A CS & Math Student at UMD building full-stack applications with a focus on AI and cloud technologies.
+          CS & Math Student at UMD building full-stack applications currently learning AI/ML and cloud technologies.
         </motion.p>
 
         <motion.div
@@ -42,13 +41,13 @@ export function Hero() {
             href='#projects'
             className='inline-block px-8 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors duration-300'
           >
-            View Projects
+            My Projects
           </a>
           <a
             href='#contact'
             className='inline-block px-8 py-3 border-2 border-border text-foreground rounded-full font-medium hover:bg-muted transition-colors duration-300'
           >
-            Get In Touch
+            Contact Me
           </a>
         </motion.div>
 
@@ -57,7 +56,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className='mt-16 text-muted-foreground'
+          className='mt-24 text-muted-foreground'
         >
           <div className='flex justify-center gap-6 mb-4'>
             <a href='https://github.com/yyrichy' target='_blank' rel='noopener noreferrer' className='hover:text-primary transition-colors'>

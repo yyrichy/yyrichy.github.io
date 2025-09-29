@@ -2,7 +2,7 @@
 import type { Metadata } from 'next';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
-import { Lora } from 'next/font/google'; // Import Lora
+import { Lora, Inconsolata } from 'next/font/google'; // Import Lora + SUSE Mono
 import './globals.css';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
@@ -20,6 +20,12 @@ const lora = Lora({
   variable: '--font-lora',
 });
 
+const suseMono = Inconsolata({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inconsolata',
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,8 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' suppressHydrationWarning className='scroll-smooth'>
-      {/* Add the lora variable to the body class */}
-      <body className={`${GeistSans.variable} ${GeistMono.variable} ${lora.variable} font-sans antialiased`}>
+      <body className={`${GeistSans.variable} ${GeistMono.variable} ${lora.variable} ${suseMono.variable} font-sans antialiased`}>
         <ThemeProvider defaultTheme='system' storageKey='ui-theme'>
           <Navbar />
           <main className='min-h-screen'>{children}</main>
