@@ -12,11 +12,11 @@ const projects = [
     id: 2,
     title: 'AI Class Schedule Generator',
     shortDescription:
-      'Web app that generates tailored class scheduled from a single text input. Uses professor review data and official school schedules to find the easiest or most difficult classes based on your preferences.',
+      "AI-powered web app that generates a full, tailored class schedule from a single text input like 'hard ML classes and an easy history course'.",
     fullDescription:
-      "A schedule creator web app that generates tailored class schedules from natural text inputs. Implemented similarity search using HuggingFace Sentence Transformers and LangChain's MemoryVectorStore to match course descriptions with user interests.",
+      'Generates tailored UMD class schedules from natural language prompts. I engineered a semantic search pipeline using Google Gemini for intent recognition, LangChain, and HuggingFace Sentence Transformers to intelligently match user preferences against 200+ courses, considering factors like difficulty and professor ratings.',
     image: '/images/testudo_match.png',
-    technologies: ['Gemini', 'LangChain', 'HuggingFace', 'Typescript', 'Next.js'],
+    technologies: ['Gemini', 'LangChain', 'HuggingFace', 'TypeScript', 'Next.js'],
     githubUrl: 'https://github.com/yyrichy/scheduleith',
   },
   {
@@ -24,19 +24,20 @@ const projects = [
     title: 'Grade Viewing/Analysis Mobile App',
     shortDescription: 'A mobile app for students to track grades in real-time by integrating with the school district’s SOAP API.',
     fullDescription:
-      "Developed a successful mobile application that greatly improved grade tracking for students by integrating with the school district's SOAP API to provide real-time academic insights. Reached 100+ downloads across both iOS and Android platforms. Implemented Sentry for production monitoring and reduced app size by 40% through Android App Bundle optimization.",
+      "Developed a mobile app that integrated with a school district's SOAP API to provide students with real-time grade tracking. Successfully launched on both iOS and Android, achieving 100+ downloads. Implemented Sentry for production monitoring and error tracking, and reduced the final app size by 40% through Android App Bundle optimization.",
     image: '/images/grade_helper.png',
-    technologies: ['React Native', 'Typescript', 'SOAP API', 'iOS', 'Android', 'Expo'],
+    technologies: ['React Native', 'TypeScript', 'SOAP API', 'iOS', 'Android', 'Expo'],
     githubUrl: 'https://github.com/yyrichy/Summit',
   },
   {
     id: 3,
     title: 'App Development Club Website',
-    shortDescription: 'Redesigned and redeveloped the club website using React, improving user engagement with dynamic content.',
+    shortDescription:
+      "Redesign and redevelopment of the club's official website to improve our public presence and showcase member projects.",
     fullDescription:
-      'Worked with other club members to redesign and redevelop the club website using React, significantly improved user engagement. Created immersive user experiences through Framer Motion and Atropos animations. Implemented a MongoDB backend to dynamically manage project content, eliminating manual updates.',
+      'Collaborated with a team to overhaul the club website using React, TypeScript, and TailwindCSS. I focused on creating an immersive user experience with Framer Motion animations with a MongoDB backend to dynamically manage and display project content, replacing the previous static, manual update process.',
     image: '/images/app_dev_club.png',
-    technologies: ['React', 'TailwindCSS', 'Typescript', 'MongoDB'],
+    technologies: ['React', 'TailwindCSS', 'TypeScript', 'MongoDB', 'Framer Motion'],
     liveUrl: 'https://appdevclub.com',
   },
 ];

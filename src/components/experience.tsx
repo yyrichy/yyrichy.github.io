@@ -10,9 +10,9 @@ const experiences = [
     role: 'Software Engineer Intern',
     duration: 'June 2025 - August 2025',
     description:
-      'Designed and implemented an embedded Go (GoLang) network connectivity monitoring system, running on Delta aircraft through Docker, performing real-time network and service tests. Replaced a fragile Python-based system that suffered from missed test runs by using ticker-based scheduling and timeout-bound goroutines, reducing CPU usage by 50%.',
+      'Increased contract revenue by replacing a legacy Python system with a mission-critical network monitor in Go. The new system eliminated a 10% billing data loss rate and cut CPU usage by 50%. Deployed via Docker on 200+ aircraft (ex: Delta), it ensures SLA compliance by performing real-time tests, with results directly determining percentage-based payments from partners.',
     image: '/images/echostar_logo.png',
-    skills: ['Go', 'Docker', 'Python'],
+    skills: ['Go', 'Docker', 'Python', 'Networking'],
   },
   {
     id: 2,
@@ -20,9 +20,9 @@ const experiences = [
     role: 'Software Engineer Intern',
     duration: 'September 2024 - May 2025',
     description:
-      'Contracted through a club, developed a mobile app and backend system for monitoring breathing tube effectiveness in children with tracheostomy. The app communicates with our device running real-time CO2 level analysis to alert nurses and parents during emergencies. The backend device uses TimescaleDB for time-series data, users and nurses added to PostgreSQL database via web application. Worked with other university students.',
+      'As part of a university club partnership, developed a real-time medical monitoring system to prevent respiratory emergencies in children. I optimized the BLE data link between the sensor and hub, increasing data throughput by 10x for accurate anomaly detection. The system features a Flutter app for instant emergency alerts, with a backend using TimescaleDB and PostgreSQL.',
     image: '/images/national.png',
-    skills: ['Flutter', 'Python', 'TimescaleDB', 'PostgreSQL', 'NumPy'],
+    skills: ['Flutter', 'Python', 'TimescaleDB', 'PostgreSQL', 'BLE', 'Raspberry Pi'],
   },
   {
     id: 3,
@@ -30,9 +30,9 @@ const experiences = [
     role: 'Software Engineer Intern',
     duration: 'January 2025 - May 2025',
     description:
-      'As first intern at a SEC-registered investment management firm startup, I implemented the initial KYC onboarding form on React.js. Additionally on the backend, automated the generation of monthly client statements and real-time trade confirmations by developing a backend service using express.js to aggregate financial data from Supabase and Alpaca APIs.',
+      'As the first engineering intern at an SEC-registered investment startup, I collaborated directly with the founders to build core product features. I developed the client-facing KYC onboarding form in React and built the Express.js backend that automated monthly statements and real-time trade confirmations via Supabase and Alpaca APIs.',
     image: '/images/rr_logo.png',
-    skills: ['Express.js', 'Next.js', 'Typescript', 'TailwindCSS'],
+    skills: ['Express.js', 'Next.js', 'Typescript', 'React', 'Alpaca API'],
     website: 'https://www.relentlessreturns.com/',
   },
   {
@@ -41,20 +41,20 @@ const experiences = [
     role: 'Software Engineer Intern',
     duration: 'September 2024 - December 2024',
     description:
-      'Developed the web platform for a startup helping Airbnb hosts fill vacant rental nights. Optimized performance, reducing page load times by 50% through memoization and lazy loading. Designed and implemented a calendar feature for hosts to block/unblock specific dates for reservations.',
+      'Developed a full-stack platform for a startup that helps Airbnb hosts fill vacant rental nights. I reduced booking calendar page load times by 50% through memoization and lazy loading, and implemented a key feature allowing hosts to manage their reservation availability.',
     image: '/images/tramona_transparent.png',
-    skills: ['Next.js', 'tRPC', 'Typescript', 'TailwindCSS'],
+    skills: ['Next.js', 'tRPC', 'Typescript', 'Prisma', 'TailwindCSS'],
     website: 'https://tramona.com',
   },
   {
     id: 5,
-    company: 'App Development Club University of Maryland',
+    company: 'App Development Club at UMD',
     role: 'Software Engineer',
     duration: 'January 2024 - May 2025',
     description:
-      "Member of a university programming club collaborating with Fortune 500 companies (Amazon, MITRE, CNH, etc.). Contributed to rebuilding the club's website using React and TailwindCSS.",
+      "As a software engineer in a club collaborating with clients like Amazon and MITRE, I helped rebuild the club's official website using React, TypeScript, and TailwindCSS to improve our public presence and member recruitment.",
     image: '/images/app_dev_logo.png',
-    skills: ['React', 'HTML/CSS', 'Typescript', 'Figma', 'MongoDB'],
+    skills: ['React', 'TypeScript', 'TailwindCSS', 'Figma', 'MongoDB'],
     website: 'https://appdevclub.com',
   },
 ];
