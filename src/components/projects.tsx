@@ -11,12 +11,13 @@ const projects = [
   {
     id: 2,
     title: 'AI Class Schedule Generator',
-    shortDescription: 'A semantic course-matching web app that generates tailored class schedules from natural language queries.',
+    shortDescription:
+      'Web app that generates tailored class scheduled from a single text input. Uses professor review data and official school schedules to find the easiest or most difficult classes based on your preferences.',
     fullDescription:
-      "Developed in a hackathon (Bitcamp 2025) a semantic course-matching web app that generates tailored class schedules from natural language queries. Implemented similarity search using HuggingFace Sentence Transformers and LangChain's MemoryVectorStore to match course descriptions with user interests.",
+      "A schedule creator web app that generates tailored class schedules from natural text inputs. Implemented similarity search using HuggingFace Sentence Transformers and LangChain's MemoryVectorStore to match course descriptions with user interests.",
     image: '/images/testudo_match.png',
     technologies: ['Gemini', 'LangChain', 'HuggingFace', 'Typescript', 'Next.js'],
-    liveUrl: 'https://devpost.com/software/testudo-match',
+    githubUrl: 'https://github.com/yyrichy/scheduleith',
   },
   {
     id: 1,
@@ -44,55 +45,67 @@ export function Projects() {
   const [expandedProjectId, setExpandedProjectId] = useState<number | null>(null);
 
   const handleCardClick = (id: number) => {
-    setExpandedProjectId(expandedProjectId === id ? null : id);
+    setExpandedProjectId(id);
   };
 
   const expandedProject = projects.find((p) => p.id === expandedProjectId);
 
   return (
-    <section id='projects' className='relative w-full py-20 overflow-hidden'>
-      {/* NEW: Added a subtle gradient background to the entire section */}
+    <section id='projects' className='w-full py-16 border-b border-border'>
+      <div className='container mx-auto px-6 sm:px-10 lg:px-16'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
+          {/* Main Feature Project */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className='md:col-span-2 cursor-pointer group'
+            onClick={() => handleCardClick(projects[0].id)}
+          >
+            <Image
+              src={projects[0].image}
+              alt={projects[0].title}
+              width={800}
+              height={450}
+              className='w-full filter grayscale group-hover:grayscale-0 transition-all duration-300'
+            />
+            <h2 className='text-3xl mt-4'>{projects[0].title}</h2>
+            <p className='text-sm text-muted-foreground mt-1'>Featuring: {projects[0].technologies.join(', ')}</p>
+            {/* FIX: Removed the columns-2 class to make this one paragraph */}
+            <div className='mt-4 space-y-4 text-base'>
+              <p>{projects[0].shortDescription}</p>
+            </div>
+            <div className='inline-block mt-4 text-primary underline group-hover:opacity-75 transition-opacity'>Read More &rarr;</div>
+          </motion.div>
 
-      <div className='relative z-10 w-full max-w-[2000px] mx-auto px-6 sm:px-10 lg:px-24'>
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          // UPDATED: Added gradient text to the heading
-          className='text-4xl md:text-5xl font-bold mb-16 font-serif text-center'
-        >
-          My Projects
-        </motion.h2>
-
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-16'>
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              layoutId={`project-card-${project.id}`}
-              onClick={() => handleCardClick(project.id)}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 * (index + 1) }}
-              className={`relative p-0.5 rounded-2xl group cursor-pointer ${index === 0 ? 'md:col-span-2' : ''}`}
-            >
-              <div className='relative h-96 rounded-[14px] overflow-hidden'>
+          {/* Sidebar Projects */}
+          <div className='space-y-8 border-t pt-8 md:border-t-0 md:border-l md:pt-0 md:pl-8'>
+            {projects.slice(1).map((project) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className='cursor-pointer group'
+                onClick={() => handleCardClick(project.id)}
+              >
                 <Image
                   src={project.image}
                   alt={project.title}
-                  fill
-                  className='object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-105'
+                  width={400}
+                  height={225}
+                  className='w-full filter grayscale mb-4 group-hover:grayscale-0 transition-all duration-300'
                 />
-                <div className='absolute inset-0 bg-gradient-to-t from-black/70 to-transparent' />
-                <div className='absolute inset-0 p-8 flex flex-col justify-end text-white'>
-                  <h3 className={`font-serif font-bold ${index === 0 ? 'text-3xl' : 'text-2xl'}`}>{project.title}</h3>
-                  <p className='mt-2 max-w-lg'>{project.shortDescription}</p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+                <h3 className='text-2xl'>{project.title}</h3>
+                <p className='mt-2 text-muted-foreground'>{project.shortDescription}</p>
+                <div className='inline-block mt-2 text-primary underline group-hover:opacity-75 transition-opacity'>Details &rarr;</div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
 
+      {/* NEW: Re-integrated the modal popup logic */}
       <AnimatePresence>
         {expandedProject && (
           <>
@@ -101,18 +114,25 @@ export function Projects() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setExpandedProjectId(null)}
-              className='fixed inset-0 bg-black/50 backdrop-blur-sm z-40'
+              className='fixed inset-0 bg-background/80 backdrop-blur-sm z-40'
             />
             <div className='fixed inset-0 z-50 flex items-center justify-center p-4'>
               <motion.div
-                layoutId={`project-card-${expandedProject.id}`}
-                className='relative w-full max-w-3xl h-auto max-h-[90vh] bg-card rounded-2xl overflow-hidden'
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                className='relative w-full max-w-3xl h-auto max-h-[90vh] bg-background rounded-lg border border-border shadow-2xl'
               >
                 <div className='relative w-full h-72'>
-                  <Image src={expandedProject.image} alt={expandedProject.title} fill className='object-cover' />
+                  <Image
+                    src={expandedProject.image}
+                    alt={expandedProject.title}
+                    fill
+                    className='object-cover rounded-t-lg filter grayscale'
+                  />
                 </div>
                 <div className='p-8 overflow-y-auto'>
-                  <h2 className='font-serif text-3xl font-bold'>{expandedProject.title}</h2>
+                  <h2 className='text-3xl font-bold'>{expandedProject.title}</h2>
                   <p className='text-muted-foreground mt-4'>{expandedProject.fullDescription}</p>
                   <div className='flex flex-wrap gap-2 mt-6'>
                     {expandedProject.technologies.map((tech) => (
@@ -121,14 +141,13 @@ export function Projects() {
                       </Badge>
                     ))}
                   </div>
-                  <div className='flex gap-4 mt-6'>
+                  <div className='flex gap-4 mt-8'>
                     {expandedProject.liveUrl && (
                       <a
                         href={expandedProject.liveUrl}
                         target='_blank'
                         rel='noopener noreferrer'
-                        onClick={(e) => e.stopPropagation()}
-                        className='inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors'
+                        className='inline-flex items-center gap-2 px-4 py-2 bg-foreground text-background rounded-md font-sans text-sm font-medium hover:opacity-80 transition-opacity'
                       >
                         View Site <ArrowUpRight size={16} />
                       </a>
@@ -138,17 +157,16 @@ export function Projects() {
                         href={expandedProject.githubUrl}
                         target='_blank'
                         rel='noopener noreferrer'
-                        onClick={(e) => e.stopPropagation()}
-                        className='inline-flex items-center gap-2 px-4 py-2 border rounded-full font-medium hover:bg-muted transition-colors'
+                        className='inline-flex items-center gap-2 px-4 py-2 border border-border rounded-md font-sans text-sm font-medium hover:bg-muted transition-colors'
                       >
-                        View GitHub
+                        View on GitHub
                       </a>
                     )}
                   </div>
                 </div>
                 <button
                   onClick={() => setExpandedProjectId(null)}
-                  className='absolute top-4 right-4 text-white bg-black/50 rounded-full p-1.5 hover:bg-black/75 transition-colors'
+                  className='absolute top-4 right-4 text-foreground/50 bg-background/50 rounded-full p-1.5 hover:text-foreground hover:bg-background/75 transition-colors'
                 >
                   <X size={20} />
                 </button>

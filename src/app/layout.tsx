@@ -1,8 +1,6 @@
 // app/layout.tsx
 import type { Metadata } from 'next';
-import { GeistSans } from 'geist/font/sans';
-import { GeistMono } from 'geist/font/mono';
-import { Lora, Inconsolata } from 'next/font/google'; // Import Lora + SUSE Mono
+import { IBM_Plex_Serif, IBM_Plex_Sans } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
@@ -13,17 +11,16 @@ export const metadata: Metadata = {
   description: "Richard Yin's Portfolio Website",
 };
 
-// Configure the Lora font
-const lora = Lora({
+const ibmPlexSerif = IBM_Plex_Serif({
   subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-lora',
+  weight: ['400', '700'],
+  variable: '--font-serif',
 });
 
-const suseMono = Inconsolata({
+const ibmPlexSans = IBM_Plex_Sans({
   subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inconsolata',
+  weight: ['400', '500'],
+  variable: '--font-sans',
 });
 
 export default function RootLayout({
@@ -33,10 +30,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' suppressHydrationWarning className='scroll-smooth'>
-      <body className={`${GeistSans.variable} ${GeistMono.variable} ${lora.variable} ${suseMono.variable} font-sans antialiased`}>
-        <ThemeProvider defaultTheme='system' storageKey='ui-theme'>
+      <body className={`${ibmPlexSerif.variable} ${ibmPlexSans.variable} font-serif antialiased`}>
+        <ThemeProvider defaultTheme='light' storageKey='ui-theme'>
           <Navbar />
-          <main className='min-h-screen'>{children}</main>
+          <main>{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

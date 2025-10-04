@@ -1,16 +1,13 @@
 // components/experience.tsx
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Badge } from '@/components/ui/badge';
 
 const experiences = [
-  // ... your experience data remains the same
   {
     id: 1,
     company: 'Echostar',
-    role: 'Aeronautical Software Engineer Intern',
+    role: 'Software Engineer Intern',
     duration: 'June 2025 - August 2025',
     description:
       'Designed and implemented an embedded Go (GoLang) network connectivity monitoring system, running on Delta aircraft through Docker, performing real-time network and service tests. Replaced a fragile Python-based system that suffered from missed test runs by using ticker-based scheduling and timeout-bound goroutines, reducing CPU usage by 50%.',
@@ -62,55 +59,27 @@ const experiences = [
   },
 ];
 
-const cardColors = [
-  'from-purple-500/10 to-blue-500/10',
-  'from-green-500/10 to-cyan-500/10',
-  'from-amber-500/10 to-orange-500/10',
-  'from-pink-500/10 to-red-500/10',
-];
-
 export function Experience() {
   return (
-    <section id='experience' className='w-full py-20 overflow-hidden'>
-      <div className='w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className='text-4xl md:text-5xl font-bold mb-16 font-serif text-center'
-        >
-          My Journey
-        </motion.h2>
-
-        <div className='space-y-8'>
-          {experiences.map((exp, index) => (
+    <section id='experience' className='w-full py-16 border-b border-border'>
+      <div className='container mx-auto px-6 sm:px-10 lg:px-16'>
+        <h2 className='text-center text-3xl mb-12'>Career & Experience</h2>
+        <div className='max-w-3xl mx-auto'>
+          {experiences.map((exp) => (
             <motion.div
               key={exp.id}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className={`w-full md:w-4/5 p-6 rounded-2xl border border-border bg-gradient-to-r ${cardColors[index % cardColors.length]}
-                ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}
-              `}
+              className='py-6 border-b border-border last:border-b-0'
             >
-              <div className='flex items-start gap-4'>
-                <div className='relative w-12 h-12 flex-shrink-0 mt-1 rounded-lg bg-muted p-1.5'>
-                  <Image src={exp.image} alt={exp.company} fill className='object-contain rounded-lg' />
-                </div>
-                <div className='flex-1'>
-                  <p className='text-sm text-muted-foreground'>{exp.duration}</p>
-                  <h3 className='text-xl font-bold font-serif mt-1'>{exp.role}</h3>
-                  <p className='text-muted-foreground font-medium'>{exp.company}</p>
-                  <p className='text-foreground/80 mt-3'>{exp.description}</p>
-                  <div className='flex flex-wrap gap-2 mt-4'>
-                    {exp.skills.map((skill) => (
-                      <Badge key={skill} variant='secondary'>
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              {/* UPDATED HIERARCHY: Role is now the main headline */}
+              <h3 className='text-2xl font-bold'>{exp.role}</h3>
+              {/* Company and Duration are now a secondary line */}
+              <p className='font-sans text-muted-foreground mt-1'>
+                {exp.company} &middot; {exp.duration}
+              </p>
+              <p className='mt-3 text-foreground/80'>{exp.description}</p>
             </motion.div>
           ))}
         </div>

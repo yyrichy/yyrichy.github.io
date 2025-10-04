@@ -1,68 +1,48 @@
 /* src/app/globals.css */
 @import "tailwindcss";
-
 @plugin "tailwindcss-animate";
 
-@custom-variant dark (&:is(.dark *));
-
 @theme {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-serif: var(--font-lora);
-  --font-inconsolata: var(--font-inconsolata);
-}
-
-@layer utilities {
-  .font-inconsolata {
-    font-family: var(--font-inconsolata);
-  }
+  --font-sans: var(--font-ibm-plex-sans);
+  --font-serif: var(--font-ibm-plex-serif);
 }
 
 :root {
-  --background: oklch(0.98 0.01 240);
-  --foreground: oklch(0.2 0.04 240);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.2 0.04 240);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2 0.04 240);
-  --primary: oklch(0.6 0.22 260); /* Vibrant Purple */
-  --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.9 0.1 280); /* Lighter Purple/Pink */
-  --secondary-foreground: oklch(0.2 0.04 240);
-  --muted: oklch(0.96 0.01 240);
-  --muted-foreground: oklch(0.5 0.02 240);
-  --accent: oklch(0.85 0.15 300); /* Accent Pink */
-  --accent-foreground: oklch(0.1 0.04 240);
-  --destructive: oklch(0.6 0.22 20); /* Destructive Red */
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.9 0.01 240);
-  --input: oklch(0.9 0.01 240);
-  --ring: oklch(0.6 0.22 260);
-  --radius: 0.625rem;
+  --background: oklch(0.98 0.005 90); /* Off-white/Tan */
+  --foreground: oklch(0.2 0.01 90);  /* Dark Gray/Black */
+  --card: oklch(0.98 0.005 90);
+  --card-foreground: oklch(0.2 0.01 90);
+  --popover: oklch(0.98 0.005 90);
+  --popover-foreground: oklch(0.2 0.01 90);
+  --primary: oklch(0.2 0.01 90); /* Set to foreground for monochromatic links */
+  --primary-foreground: oklch(0.98 0.005 90);
+  --secondary: oklch(0.94 0.01 90); /* Light Gray */
+  --secondary-foreground: oklch(0.2 0.01 90);
+  --muted: oklch(0.94 0.01 90);
+  --muted-foreground: oklch(0.4 0.01 90); /* Medium Gray */
+  --accent: oklch(0.94 0.01 90);
+  --accent-foreground: oklch(0.2 0.01 90);
+  --destructive: oklch(0.5 0.2 40); /* A desaturated red for errors */
+  --destructive-foreground: oklch(0.98 0.005 90);
+  --border: oklch(0.88 0.01 90); /* Gray for lines/borders */
+  --input: oklch(0.88 0.01 90);
+  --ring: oklch(0.2 0.01 90);
+  --radius: 0.25rem; /* Sharper corners */
 }
 
-.dark {
-  --background: oklch(0.1 0.02 260);
-  --foreground: oklch(0.95 0.01 260);
-  --card: oklch(0.12 0.02 260);
-  --card-foreground: oklch(0.95 0.01 260);
-  --popover: oklch(0.1 0.02 260);
-  --popover-foreground: oklch(0.95 0.01 260);
-  --primary: oklch(0.75 0.2 260); /* Brighter Purple for dark mode */
-  --primary-foreground: oklch(0.1 0.02 260);
-  --secondary: oklch(0.2 0.03 260);
-  --secondary-foreground: oklch(0.95 0.01 260);
-  --muted: oklch(0.2 0.03 260);
-  --muted-foreground: oklch(0.6 0.01 260);
-  --accent: oklch(0.35 0.15 300);
-  --accent-foreground: oklch(0.98 0 0);
-  --destructive: oklch(0.5 0.2 20);
-  --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.2 0.02 260);
-  --input: oklch(0.2 0.02 260);
-  --ring: oklch(0.75 0.2 260);
-}
+/* We remove .dark to enforce a single, light theme */
 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-bold;
+  }
+}
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -105,10 +85,13 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-bold;
   }
 }
 
