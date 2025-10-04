@@ -1,8 +1,6 @@
 // components/contact.tsx
 'use client';
 
-import { motion } from 'framer-motion';
-
 export function Contact() {
   return (
     <section id='contact' className='w-full py-16 text-center'>
