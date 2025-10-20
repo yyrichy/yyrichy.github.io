@@ -33,14 +33,6 @@ export function Navbar() {
             <Link href='#contact' className={navLinkClasses}>
               Contact
             </Link>
-            <a href='/Richard_Yin_Resume.pdf' target='_blank' rel='noopener noreferrer'>
-              {/* Changed button variant to outline */}
-              <Button variant='outline' className='flex items-center gap-2 font-sans'>
-                <ExternalLink size={16} />
-                Resume
-              </Button>
-            </a>
-            {/* Removed ThemeToggle */}
           </div>
 
           {/* Mobile Navigation Toggle */}
@@ -97,12 +89,6 @@ export function Navbar() {
             <Link href='#contact' className='hover:underline' onClick={() => setIsMenuOpen(false)}>
               Contact
             </Link>
-            <a href='/Richard_Yin_Resume.pdf' target='_blank' rel='noopener noreferrer'>
-              <Button variant='outline' className='w-full flex items-center gap-2 font-sans'>
-                <ExternalLink size={16} />
-                Resume
-              </Button>
-            </a>
           </div>
         </div>
       )}
