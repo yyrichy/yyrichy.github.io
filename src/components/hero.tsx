@@ -2,9 +2,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { format } from 'date-fns';
 
 export function Hero() {
-  const currentDate = 'October 4, 2025';
+  const currentDate = format(new Date(), 'MMMM dd, yyyy');
 
   return (
     <section className='w-full border-b-2 border-foreground pb-8 pt-24'>
