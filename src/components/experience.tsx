@@ -16,16 +16,6 @@ const experiences = [
   },
   {
     id: 2,
-    company: "Children's National Hospital",
-    role: 'Software Engineer Intern',
-    duration: 'September 2024 - May 2025',
-    description:
-      'As part of a university club partnership, developed a real-time medical monitoring system to prevent respiratory emergencies in children. I optimized the BLE data link between the sensor and hub, increasing data throughput by 10x for accurate anomaly detection. The system features a Flutter app for instant emergency alerts, with a backend using TimescaleDB and PostgreSQL.',
-    image: '/images/national.png',
-    skills: ['Flutter', 'Python', 'TimescaleDB', 'PostgreSQL', 'BLE', 'Raspberry Pi'],
-  },
-  {
-    id: 3,
     company: 'Relentless Returns',
     role: 'Software Engineer Intern',
     duration: 'January 2025 - May 2025',
@@ -34,6 +24,16 @@ const experiences = [
     image: '/images/rr_logo.png',
     skills: ['Express.js', 'Next.js', 'Typescript', 'React', 'Alpaca API'],
     website: 'https://www.relentlessreturns.com/',
+  },
+  {
+    id: 3,
+    company: "Children's National Hospital",
+    role: 'Software Engineer Intern',
+    duration: 'September 2024 - December 2024',
+    description:
+      'As part of a university club partnership, developed a real-time medical monitoring system to prevent respiratory emergencies in children. I optimized the BLE data link between the sensor and hub, increasing data throughput by 10x for accurate anomaly detection. The system features a Flutter app for instant emergency alerts, with a backend using TimescaleDB and PostgreSQL.',
+    image: '/images/national.png',
+    skills: ['Flutter', 'Python', 'TimescaleDB', 'PostgreSQL', 'BLE', 'Raspberry Pi'],
   },
   {
     id: 4,
@@ -50,7 +50,7 @@ const experiences = [
     id: 5,
     company: 'App Development Club at UMD',
     role: 'Software Engineer',
-    duration: 'January 2024 - May 2025',
+    duration: 'January 2024 - May 2024',
     description:
       "As a software engineer in a club collaborating with clients like Amazon and MITRE, I helped rebuild the club's official website using React, TypeScript, and TailwindCSS to improve our public presence and member recruitment.",
     image: '/images/app_dev_logo.png',
