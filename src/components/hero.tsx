@@ -47,7 +47,7 @@ export function Hero() {
               </a>
             </div>
             <p className='text-sm text-muted-foreground font-sans tracking-wider'>
-              TypeScript · Python · AWS · SQL · React · Java · & More
+              TypeScript · Python · AWS · Go · SQL · React · Java · & More
             </p>
           </div>
         </motion.div>

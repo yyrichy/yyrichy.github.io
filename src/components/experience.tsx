@@ -9,8 +9,11 @@ const experiences = [
     company: 'Echostar',
     role: 'Software Engineer Intern',
     duration: 'June 2025 - August 2025',
-    description:
-      'Increased contract revenue by replacing a legacy Python system with a mission-critical network monitor in Go. The new system eliminated a 10% billing data loss rate and cut CPU usage by 50%. Deployed via Docker on 200+ aircraft (ex: Delta), it ensures SLA compliance by performing real-time tests, with results directly determining percentage-based payments from partners.',
+    description: [
+      'Rebuilt in-flight network monitoring system from Python APScheduler to Go, replacing blocking thread pool with goroutines and context-based timeouts',
+      'Reduced critical test failures by 90% in staging through concurrent goroutine architecture with context-based timeout handling, increasing contract payment percentage by 5% SLA KPI thresholds.',
+      'Refactored hardcoded single-client logic into JSON config-driven architecture supporting multiple airlines; containerized deployments with Docker for consistent staging/production deploying.',
+    ],
     image: '/images/echostar_logo.png',
     skills: ['Go', 'Docker', 'Python', 'Networking'],
   },
@@ -19,8 +22,12 @@ const experiences = [
     company: 'Relentless Returns',
     role: 'Software Engineer Intern',
     duration: 'January 2025 - May 2025',
-    description:
-      'As the first engineering intern at an SEC-registered investment startup, I collaborated directly with the founders to build core product features. I developed the client-facing KYC onboarding form in React and built the Express.js backend that automated monthly statements and real-time trade confirmations via Supabase and Alpaca APIs.',
+    description: [
+      'Built automated PDF report generation and email delivery system using Express.js and Supabase.',
+      'Implemented authenticated document access with session-based login verification and redirect handling, replacing direct PDF email attachments with secure web links.',
+      'Built React/Next.js portfolio dashboard with Supabase backend displaying real-time S&P 500 benchmark comparisons and asset allocation breakdowns.',
+      'Developed KYC onboarding form with client-side regulatory field validation.'
+    ],
     image: '/images/rr_logo.png',
     skills: ['Express.js', 'Next.js', 'Typescript', 'React', 'Alpaca API'],
     website: 'https://www.relentlessreturns.com/',
@@ -30,8 +37,10 @@ const experiences = [
     company: "Children's National Hospital",
     role: 'Software Engineer Intern',
     duration: 'September 2024 - December 2024',
-    description:
-      'As part of a university club partnership, developed a real-time medical monitoring system to prevent respiratory emergencies in children. I optimized the BLE data link between the sensor and hub, increasing data throughput by 10x for accurate anomaly detection. The system features a Flutter app for instant emergency alerts, with a backend using TimescaleDB and PostgreSQL.',
+    description: [
+      'Refactored ESP32-to-Raspberry Pi Bluetooth communication from polling to event-driven architecture, increasing sensor sample rate from 1Hz to 10Hz for tracheostomy monitoring system, enabling 95% ML detection accuracy.',
+      'Developed Flutter mobile app for medical staff incident tracking and logging.',
+    ],
     image: '/images/national.png',
     skills: ['Flutter', 'Python', 'TimescaleDB', 'PostgreSQL', 'BLE', 'Raspberry Pi'],
   },
@@ -40,8 +49,11 @@ const experiences = [
     company: 'Tramona',
     role: 'Software Engineer Intern',
     duration: 'September 2024 - December 2024',
-    description:
-      'Developed a full-stack platform for a startup that helps Airbnb hosts fill vacant rental nights. I reduced booking calendar page load times by 50% through memoization and lazy loading, and implemented a key feature allowing hosts to manage their reservation availability.',
+    description: [
+      'Developed a full-stack platform for a startup helping Airbnb hosts fill vacant rental nights.',
+      'Reduced booking calendar page load times by 50% through memoization and lazy loading.',
+      'Implemented a feature allowing hosts to manage reservation availability.',
+    ],
     image: '/images/tramona_transparent.png',
     skills: ['Next.js', 'tRPC', 'Typescript', 'Prisma', 'TailwindCSS'],
     website: 'https://tramona.com',
@@ -51,8 +63,9 @@ const experiences = [
     company: 'App Development Club at UMD',
     role: 'Software Engineer',
     duration: 'January 2024 - May 2024',
-    description:
-      "As a software engineer in a club collaborating with clients like Amazon and MITRE, I helped rebuild the club's official website using React, TypeScript, and TailwindCSS to improve our public presence and member recruitment.",
+    description: [
+      "Rebuilt the club's official website using React, TypeScript, and TailwindCSS.",
+    ],
     image: '/images/app_dev_logo.png',
     skills: ['React', 'TypeScript', 'TailwindCSS', 'Figma', 'MongoDB'],
     website: 'https://appdevclub.com',
@@ -63,7 +76,7 @@ export function Experience() {
   return (
     <section id='experience' className='w-full py-16 border-b border-border'>
       <div className='container mx-auto px-6 sm:px-10 lg:px-16'>
-        <h2 className='text-center text-3xl mb-12'>Career & Experience</h2>
+        <h2 className='text-center text-3xl mb-12'>Experience</h2>
         <div className='max-w-3xl mx-auto'>
           {experiences.map((exp) => (
             <motion.div
@@ -73,13 +86,18 @@ export function Experience() {
               transition={{ duration: 0.6 }}
               className='py-6 border-b border-border last:border-b-0'
             >
-              {/* UPDATED HIERARCHY: Role is now the main headline */}
               <h3 className='text-2xl font-bold'>{exp.role}</h3>
-              {/* Company and Duration are now a secondary line */}
               <p className='font-sans text-muted-foreground mt-1'>
                 {exp.company} &middot; {exp.duration}
               </p>
-              <p className='mt-3 text-foreground/80'>{exp.description}</p>
+
+              <ul className='mt-3 space-y-2 list-disc list-inside text-foreground/80'>
+                {exp.description.map((point, index) => (
+                  <li key={index} className='leading-relaxed'>
+                    {point}
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           ))}
         </div>
