@@ -6,6 +6,15 @@ import { motion } from 'framer-motion';
 const experiences = [
   {
     id: 1,
+    company: 'Visa',
+    role: 'Incoming Software Engineer Intern',
+    duration: 'June 2026 - August 2026',
+    description: [],
+    image: '/images/visa_logo.jpeg',
+    skills: ['AI Agents'],
+  },
+  {
+    id: 1,
     company: 'Echostar',
     role: 'Software Engineer Intern',
     duration: 'June 2025 - August 2025',
