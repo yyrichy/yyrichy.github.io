@@ -1,4 +1,3 @@
-// components/experience.tsx
 'use client';
 
 import { motion } from 'framer-motion';
@@ -14,7 +13,7 @@ const experiences = [
       'Engineered query safety guardrails using SQL AST parsing to block write operations, enforce row limits, and ensure strictly read-only execution across connected databases',
       'Onboarded 6 product teams, serving 2,000+ tool queries over a 3-week rollout; containerized the service with Docker and managed Kubernetes deployments, replica scaling, and CPU/memory limits via CI/CD',
     ],
-    image: '/images/visa_logo.jpeg',  
+    image: '/images/visa_logo.jpeg',
     skills: ['FastMCP', 'Kubernetes', 'Docker', 'Python', 'SQL', 'OpenShift'],
   },
   {
@@ -39,7 +38,7 @@ const experiences = [
       'Built automated PDF report generation and email delivery system using Express.js and Supabase.',
       'Implemented authenticated document access with session-based login verification and redirect handling, replacing direct PDF email attachments with secure web links.',
       'Built React/Next.js portfolio dashboard with Supabase backend displaying real-time S&P 500 benchmark comparisons and asset allocation breakdowns.',
-      'Developed KYC onboarding form with client-side regulatory field validation.'
+      'Developed KYC onboarding form with client-side regulatory field validation.',
     ],
     image: '/images/rr_logo.png',
     skills: ['Express.js', 'Next.js', 'Typescript', 'React', 'Alpaca API'],
@@ -117,7 +116,7 @@ export function Experience() {
                   <p key={skill} className='font-sans'>
                     {skill}
                   </p>
-                )}
+                ))}
               </div>
             </motion.div>
           ))}
