@@ -18,7 +18,7 @@ const experiences = [
     skills: ['FastMCP', 'Kubernetes', 'Docker', 'Python', 'SQL', 'OpenShift'],
   },
   {
-    id: 1,
+    id: 2,
     company: 'Echostar',
     role: 'Software Engineer Intern',
     duration: 'June 2025 - August 2025',
@@ -31,7 +31,7 @@ const experiences = [
     skills: ['Go', 'Docker', 'Python', 'Networking'],
   },
   {
-    id: 2,
+    id: 3,
     company: 'Relentless Returns',
     role: 'Software Engineer Intern',
     duration: 'January 2025 - May 2025',
@@ -46,7 +46,7 @@ const experiences = [
     website: 'https://www.relentlessreturns.com/',
   },
   {
-    id: 3,
+    id: 4,
     company: "Children's National Hospital",
     role: 'Software Engineer Intern',
     duration: 'September 2024 - December 2024',
@@ -58,7 +58,7 @@ const experiences = [
     skills: ['Flutter', 'Python', 'TimescaleDB', 'PostgreSQL', 'BLE', 'Raspberry Pi'],
   },
   {
-    id: 4,
+    id: 5,
     company: 'Tramona',
     role: 'Software Engineer Intern',
     duration: 'September 2024 - December 2024',
@@ -72,7 +72,7 @@ const experiences = [
     website: 'https://tramona.com',
   },
   {
-    id: 5,
+    id: 6,
     company: 'App Development Club at UMD',
     role: 'Software Engineer',
     duration: 'January 2024 - May 2024',
@@ -111,6 +111,14 @@ export function Experience() {
                   </li>
                 ))}
               </ul>
+
+              <div className='flex mt-3 gap-3'>
+                {exp.skills.map((skill) => (
+                  <p key={skill} className='font-sans'>
+                    {skill}
+                  </p>
+                )}
+              </div>
             </motion.div>
           ))}
         </div>
