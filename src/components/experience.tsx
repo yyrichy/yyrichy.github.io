@@ -7,11 +7,15 @@ const experiences = [
   {
     id: 1,
     company: 'Visa',
-    role: 'Incoming Software Engineer Intern',
+    role: 'Software Engineer Intern',
     duration: 'June 2026 - August 2026',
-    description: [],
-    image: '/images/visa_logo.jpeg',
-    skills: ['AI Agents'],
+    description: [
+      'Built a Python FastMCP database server enabling non-technical staff and developer tools (Claude Code, agents) to query Oracle, MySQL, and PostgreSQL across QA, dev, and UAT environments in natural language',
+      'Engineered query safety guardrails using SQL AST parsing to block write operations, enforce row limits, and ensure strictly read-only execution across connected databases',
+      'Onboarded 6 product teams, serving 2,000+ tool queries over a 3-week rollout; containerized the service with Docker and managed Kubernetes deployments, replica scaling, and CPU/memory limits via CI/CD',
+    ],
+    image: '/images/visa_logo.jpeg',  
+    skills: ['FastMCP', 'Kubernetes', 'Docker', 'Python', 'SQL', 'OpenShift'],
   },
   {
     id: 1,
